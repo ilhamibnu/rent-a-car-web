@@ -5,8 +5,11 @@
         <a href="user-profile.html">
             <h6 class="mt-3 f-14 f-w-600">Emay Walter</h6>
         </a>
-        <p class="mb-0 font-roboto">Human Resources Department</p>
-        <ul>
+        <p class="mb-0 font-roboto">Admin</p>
+        <div class="mt-2">
+            <a class="btn btn-light" href="/profil">Update Profil</a>
+        </div>
+        {{-- <ul>
             <li>
                 <span><span class="counter">19.8</span>k</span>
                 <p>Follow</p>
@@ -19,7 +22,7 @@
                 <span><span class="counter">95.2</span>k</span>
                 <p>Follower</p>
             </li>
-        </ul>
+        </ul> --}}
     </div>
     <nav>
         <div class="main-navbar">
@@ -46,6 +49,10 @@
 
                     <li class="dropdown">
                         <a class="nav-link menu-title link-nav " href="/data-mobil"><i data-feather="truck"></i><span>Data Mobil</span></a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="nav-link menu-title link-nav " href="/data-ulasan"><i data-feather="message-square"></i><span>Data Ulasan</span></a>
                     </li>
 
                     <li class="dropdown">

@@ -1,5 +1,5 @@
 @extends('admin.layout.main')
-@section('title', 'Data Mobil - ')
+@section('title', 'Data Ulasan - ')
 @section('content')
 <div class="container-fluid">
     <div class="page-header">
