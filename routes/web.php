@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MobilController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TransaksiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+# Dashboard
+Route::get('/dashboard', [DashboardController::class, 'index']);
+
+# Mobil
+Route::get('/data-mobil', [MobilController::class, 'index']);
+
+# User
+Route::get('/data-user', [UserController::class, 'index']);
+
+# Transaksi
+Route::get('/data-transaksi', [TransaksiController::class, 'index']);
