@@ -70,12 +70,12 @@
                             <table class="display" id="advance-1">
                                 <thead>
                                     <tr>
-                                        <th class="text-capitalize">nama mobil</th>
-                                        <th class="text-capitalize">foto</th>
-                                        <th class="text-capitalize">harga</th>
-                                        <th class="text-capitalize">status</th>
-                                        <th class="text-capitalize">deskripsi</th>
-                                        <th class="text-capitalize">action</th>
+                                        <th class="text-capitalize text-center">nama mobil</th>
+                                        <th class="text-capitalize text-center">foto</th>
+                                        <th class="text-capitalize text-center">harga</th>
+                                        <th class="text-capitalize text-center">status</th>
+                                        <th class="text-capitalize text-center">deskripsi</th>
+                                        <th class="text-capitalize text-center">action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
