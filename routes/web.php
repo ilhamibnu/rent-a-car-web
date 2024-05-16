@@ -29,6 +29,9 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 
 # Mobil
 Route::get('/data-mobil', [MobilController::class, 'index']);
+Route::post('/data-mobil/add', [MobilController::class, 'store'])->name('Admin.data-mobil.add');
+Route::post('/data-mobil/update/{id}', [MobilController::class, 'update'])->name('Admin.data-mobil.update');
+Route::delete('/data-mobil/delete/{id}', [MobilController::class, 'destroy'])->name('Admin.data-mobil.delete');
 
 # User
 Route::get('/data-user', [UserController::class, 'index']);
