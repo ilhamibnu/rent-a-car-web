@@ -22,7 +22,10 @@ use App\Http\Controllers\TransaksiController;
 
 # Auth
 Route::get('/login', [AuthController::class, 'index']);
+
+# Profil
 Route::get('/profil', [AuthController::class, 'profil']);
+Route::post('/update-profil', [AuthController::class, 'updateprofil']);
 
 # Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index']);

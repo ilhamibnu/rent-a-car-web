@@ -48,36 +48,56 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form>
+                        @if($errors->any())
+                        <div class="alert alert-danger alert-dismissible fade show mt-2">
+
+
+
+                            <?php
+
+                    $nomer = 1;
+
+                    ?>
+
+                            @foreach($errors->all() as $error)
+                            <li>{{ $nomer++ }}. {{ $error }}</li>
+                            @endforeach
+                        </div>
+                        @endif
+                        <form action="/update-profil" method="POST">
+                            @csrf
+                            @method('POST')
                             <div class="row mb-2">
                                 <div class="profile-title">
                                     <div class="media">
                                         <img class="img-70 rounded-circle" alt="" src="{{ asset('admin/assets/images/user/7.jpg') }}" />
                                         <div class="media-body">
-                                            <h3 class="mb-1 f-20 txt-primary">MARK JECNO</h3>
-                                            <p class="f-12">DESIGNER</p>
+                                            <h3 class="mb-1 f-20 txt-primary">{{ Auth::user()->name }}</h3>
+                                            <p class="f-12">{{ Auth::user()->role }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <h6 class="form-label">Bio</h6>
-                                <textarea class="form-control" rows="5">On the other hand, we denounce with righteous indignation</textarea>
+                                <label class="form-label">Name</label>
+                                <input class="form-control" name="name" value="{{ Auth::user()->name }}" placeholder="your-email@domain.com" />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Email-Address</label>
-                                <input class="form-control" placeholder="your-email@domain.com" />
+                                <input class="form-control" name="email" value="{{ Auth::user()->email }}" placeholder="your-email@domain.com" />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Password</label>
-                                <input class="form-control" type="password" value="password" />
+                                <input class="form-control" name="password" type="password" value="password" />
                             </div>
+
                             <div class="mb-3">
-                                <label class="form-label">Website</label>
-                                <input class="form-control" placeholder="http://Uplor .com" />
+                                <label class="form-label">Password</label>
+                                <input class="form-control" name="repassword" type="password" value="password" />
                             </div>
+
                             <div class="form-footer">
-                                <button class="btn btn-primary btn-block">Save</button>
+                                <button type="submit" class="btn btn-primary btn-block">Save</button>
                             </div>
                         </form>
                     </div>

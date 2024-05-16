@@ -45,37 +45,34 @@
                         example also uses the DataTables<code class="api" title="DataTables API method">row().data()API</code> method to retrieve information about the selected row - the row's data so we can show it in the <code>alert</code> message in this case.</span>
                 </div>
                 {{-- btn add --}}
-                <div class="card-header pb-0">
+                {{-- <div class="card-header pb-0">
                     <a href="" data-bs-toggle="modal" data-bs-target="#Add" class="btn btn-primary">Tambah Data</a>
-                </div>
+                </div> --}}
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="display" id="advance-1">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                    <th>Action</th>
+                                    <th>Ulasan</th>
+                                    {{-- <th>Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($ulasan as $data )
+
+
                                 <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $data->transaksi->user->name }}</td>
+                                    <td>{{ $data->ulasan }}</td>
+                                    {{-- <td>
                                         <div class="d-flex justify-content-center">
                                             <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Edit" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
                                             <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Delete" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                         </div>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                                 {{-- Edit Modal --}}
                                 <div class="modal fade" id="Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -132,7 +129,7 @@
                                     </div>
                                 </div>
                                 {{-- End Modal --}}
-
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -22,6 +22,16 @@ class MobilController extends Controller
             'status' => 'required',
             'deskripsi' => 'required|string',
             'foto' => 'required|image|file|max:2000'
+        ], [
+            'nama.required' => 'Nama Mobil Harus Diisi',
+            'harga.required' => 'Harga Mobil Harus Diisi',
+            'status.required' => 'Status Mobil Harus Diisi',
+            'deskripsi.required' => 'Deskripsi Mobil Harus Diisi',
+            'foto.required' => 'Foto Mobil Harus Diisi',
+            'foto.image' => 'Foto Mobil Harus Berupa Gambar',
+            'foto.file' => 'Foto Mobil Harus Berupa File',
+            'foto.max' => 'Foto Mobil Maksimal 2MB'
+
         ]);
 
         if ($request->file('foto')) {
@@ -38,7 +48,7 @@ class MobilController extends Controller
             $dataMobil->save();
         }
 
-        return redirect()->back()->with('success', 'Berhasil Menambahkan Data Mobil');
+        return redirect()->back()->with('store', 'Berhasil Menambahkan Data Mobil');
     }
 
     public function update(Request $request, $id)
@@ -71,7 +81,7 @@ class MobilController extends Controller
             $dataMobil->update();
         }
 
-        return redirect()->back()->with('success', 'Data Berhasil Di Perbarui');
+        return redirect()->back()->with('update', 'Data Berhasil Di Perbarui');
     }
 
     public function destroy($id)
@@ -79,6 +89,6 @@ class MobilController extends Controller
         $dataMobil = Mobil::findOrFail($id);
         File::delete('img/mobil/' . basename($dataMobil->foto));
         $dataMobil->delete();
-        return redirect()->back()->with('success', 'Berhasil Menghapus Data');
+        return redirect()->back()->with('destroy', 'Berhasil Menghapus Data');
     }
 }
