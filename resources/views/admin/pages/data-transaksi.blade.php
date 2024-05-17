@@ -45,72 +45,128 @@
                         example also uses the DataTables<code class="api" title="DataTables API method">row().data()API</code> method to retrieve information about the selected row - the row's data so we can show it in the <code>alert</code> message in this case.</span>
                 </div>
                 {{-- btn add --}}
-                <div class="card-header pb-0">
+                {{-- <div class="card-header pb-0">
                     <a href="" data-bs-toggle="modal" data-bs-target="#Add" class="btn btn-primary">Tambah Data</a>
-                </div>
+                </div> --}}
                 <div class="card-body">
+                    @if($errors->any())
+                        <div class="alert alert-danger alert-dismissible fade show mt-2">
+
+
+
+                        <?php
+
+                        $nomer = 1;
+
+                        ?>
+
+                        @foreach($errors->all() as $error)
+                        <li>{{ $nomer++ }}. {{ $error }}</li>
+                        @endforeach
+                    </div>
+                    @endif
                     <div class="table-responsive">
                         <table class="display" id="advance-1">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                    <th>Action</th>
+                                    <th>ID User</th>
+                                    <th>ID Transaksi</th>
+                                    <th>Tanggal Kembali</th>
+                                    <th>Tanggal Keluar</th>
+                                    <th>Status</th>
+                                    <th>Tanggal Pesan</th>
+                                    <th>Total Harga</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($transaksi as $t)
                                 <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
+                                    <td>{{ $t->id_user }}</td>
+                                        @foreach($t->detailTransaksi as $detail)
+                                            <td>{{ $detail->id_transaksi }}</td>
+                                            <td>{{ $detail->tanggal_kembali }}</td>
+                                            <td>{{ $detail->tanggal_keluar }}</td>
+                                        @endforeach
+                                        @if($t->detailTransaksi->isEmpty())
+                                            <td colspan="3">Tidak ada detail transaksi</td>
+                                        @endif                                                               
+                                    <td>{{ $t->status }}</td>
+                                    <td>{{ $t->tanggal }}</td>
+                                    <td>{{ $t->total_harga }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
-                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Edit" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Delete" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Edit{{ $t->id }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Delete{{ $t->id }}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
+
                                 {{-- Edit Modal --}}
-                                <div class="modal fade" id="Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="Edit{{ $t->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Edit</h5>
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body">
-                                                <form>
+                                            <form action="{{ route('data-transaksi.update', $t->id) }}" method="post" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PUT')
+                                                <div class="modal-body">
                                                     <div class="mb-3">
-                                                        <label class="col-form-label" for="recipient-name">Recipient:</label>
-                                                        <input class="form-control" id="recipient-name" type="text" value="@Mat" />
+                                                        <label class="col-form-label text-capitalize" for="id_user">ID User:</label>
+                                                        <input class="form-control" name="id_user" id="id_user" type="text" value="{{ $t->id_user }}" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="col-form-label" for="message-text">Message:</label>
-                                                        <textarea class="form-control"></textarea>
+                                                        <label class="col-form-label text-capitalize" for="id_transaksi">ID Transaksi:</label>
+                                                        <input class="form-control" name="id_transaksi" id="id_transaksi" type="text" value="{{ $detail->id_transaksi }}" required>
                                                     </div>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
-                                                    Close
-                                                </button>
-                                                <button class="btn btn-primary" type="button">
-                                                    Ok
-                                                </button>
-                                            </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label text-capitalize" for="tanggal_kembali">Tanggal Kembali:</label>
+                                                        <input class="form-control" type="date" name="tanggal_kembali" id="tanggal_kembali" value="{{ $detail->tanggal_kembali }}" required>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label text-capitalize" for="tanggal_keluar">Tanggal Keluar:</label>
+                                                        <input class="form-control" type="date" name="tanggal_keluar" id="tanggal_keluar" value="{{ $detail->tanggal_keluar }}" required>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label text-capitalize" for="status">Status:</label>
+                                                        <select class="form-select" name="status" id="status">
+                                                            <option value="" disabled>Pilih Status</option>
+                                                            <option value="Selesai" {{ $t->status == 'Selesai' ? 'selected' : '' }}>
+                                                                Selesai
+                                                            </option>
+                                                            <option value="Belum selesai" {{ $t->status == 'Belum Selesai' ? 'selected' : '' }}>
+                                                                Belum Selesai
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label text-capitalize" for="tanggal">Tanggal:</label>
+                                                        <input class="form-control" type="date" name="tanggal" id="tanggal" value="{{ $t->tanggal }}" required>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="col-form-label text-capitalize" for="total_harga">Total Harga:</label>
+                                                        <input class="form-control" type="number" name="total_harga" id="total_harga" value="{{ $t->total_harga }}" required>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
+                                                        Close
+                                                    </button>
+                                                    <button class="btn btn-primary" type="submit">
+                                                        Ok
+                                                    </button>
+                                                </div>
+                                            </form>                                            
                                         </div>
                                     </div>
                                 </div>
                                 {{-- End Modal --}}
+
                                 {{-- Delete Modal --}}
-                                <div class="modal fade" id="Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="Delete{{ $t->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -124,54 +180,19 @@
                                                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
                                                     Close
                                                 </button>
-                                                <button class="btn btn-primary" type="button">
-                                                    Ok
-                                                </button>
+                                                <form action="{{ route('data-transaksi.destroy', $t->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger" id="delete-record{{ $t->id }}">Ya, Hapus</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 {{-- End Modal --}}
-
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
-                {{-- Add Modal --}}
-                <div class="modal fade" id="Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Add</h5>
-                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="mb-3">
-                                        <label class="col-form-label" for="recipient-name">Recipient:</label>
-                                        <input class="form-control" id="recipient-name" type="text" value="@Mat" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="col-form-label" for="message-text">Message:</label>
-                                        <textarea class="form-control"></textarea>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
-                                    Close
-                                </button>
-                                <button class="btn btn-primary" type="button">
-                                    Ok
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{-- End Modal --}}
-            </div>
-        </div>
-        <!-- DOM / jQuery  Ends-->
-    </div>
-</div>
 @endsection

@@ -38,9 +38,16 @@ Route::delete('/data-mobil/delete/{id}', [MobilController::class, 'destroy'])->n
 
 # User
 Route::get('/data-user', [UserController::class, 'index']);
+Route::post('/data-transaksi', [TransaksiController::class, 'store'])->name('data-transaksi.store');
+Route::get('/data-transaksi/{id}/edit', [TransaksiController::class, 'edit']);
+Route::put('/data-transaksi/{id}', [TransaksiController::class, 'update']);
+Route::delete('/data-transaksi/{id}', [TransaksiController::class, 'destroy']);
 
 # Transaksi
-Route::get('/data-transaksi', [TransaksiController::class, 'index']);
+// Route::get('/data-transaksi', [TransaksiController::class, 'index']);
+Route::get('/data-transaksi', [TransaksiController::class, 'index'])->name('data-transaksi.index');
+Route::put('/data-transaksi/{id}', [TransaksiController::class, 'update'])->name('data-transaksi.update');
+Route::delete('/data-transaksi/{id}', [TransaksiController::class, 'destroy'])->name('data-transaksi.destroy');
 
 # Ulasan
 Route::get('/data-ulasan', [UlasanController::class, 'index']);
