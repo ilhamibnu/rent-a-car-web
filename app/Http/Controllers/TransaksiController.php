@@ -62,5 +62,6 @@ class TransaksiController extends Controller
         $transaksi->delete();
 
         return redirect()->back()->with('destroy', 'Berhasil Menghapus Data Transaksi');
+
     }
 }
