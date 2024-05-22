@@ -19,13 +19,14 @@ class Mobil extends Model
         'status'
     ];
 
-    public function cart()
-    {
-        return $this->hasMany(Cart::class, 'id_mobil', 'id');
-    }
 
     public function detailTransaksi()
     {
         return $this->hasMany(DetailTransaksi::class, 'id_mobil', 'id');
+    }
+
+    public function cart()
+    {
+        return $this->hasMany(Cart::class, 'id_mobil', 'id');
     }
 }

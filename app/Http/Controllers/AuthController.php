@@ -18,6 +18,30 @@ class AuthController extends Controller
         return view('admin.auth.profil');
     }
 
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ], [
+            'email.required' => 'Email harus diisi',
+            'email.email' => 'Email tidak valid',
+            'password.required' => 'Password harus diisi',
+        ]);
+
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            return redirect('/dashboard')->with('login', 'Login berhasil');
+        } else {
+            return redirect()->back()->with('logingagal', 'Email atau password salah');
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login')->with('logout', 'Logout berhasil');
+    }
+
     public function updateprofil(Request $request)
     {
         if ($request->password != null) {

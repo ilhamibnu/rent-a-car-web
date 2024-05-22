@@ -89,6 +89,7 @@
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div class="mb-3">
                                     <label class="form-label">Name</label>
                                     <input class="form-control" name="name" value="{{ Auth::user()->name }}"
@@ -108,6 +109,26 @@
                                     <label class="form-label">Password</label>
                                     <input class="form-control" name="repassword" type="password" value="password" />
                                 </div>
+=======
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input class="form-control" name="name" value="{{ Auth::user()->name }}" placeholder="your-email@domain.com" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email-Address</label>
+                                <input class="form-control" name="email" value="{{ Auth::user()->email }}" placeholder="your-email@domain.com" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input class="form-control" name="password" type="password" value="" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input class="form-control" name="repassword" type="password" value="" />
+                            </div>
+>>>>>>> 205186df88b20ae42abb08c38a26fd30093c44b8
 
                                 <div class="form-footer">
                                     <button type="submit" class="btn btn-primary btn-block">Save</button>

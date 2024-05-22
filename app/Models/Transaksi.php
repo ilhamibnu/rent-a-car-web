@@ -12,10 +12,13 @@ class Transaksi extends Model
     protected $table = 'transaksi';
 
     protected $fillable = [
-        'tanggal',
+        'no_transaksi',
         'total_harga',
-        'status',
+        'status_pembayaran',
         'id_user',
+        'bank',
+        'no_va',
+        'expired_at',
     ];
 
     public function user()

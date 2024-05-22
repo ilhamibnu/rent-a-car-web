@@ -5,12 +5,12 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-lg-6">
-                    <h3>Advanced DataTables</h3>
+                    <h3>Data Mobil</h3>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="../dashboard.html">Home</a></li>
                         <li class="breadcrumb-item">Tables</li>
                         <li class="breadcrumb-item">Data Tables</li>
-                        <li class="breadcrumb-item active">Advance init</li>
+                        <li class="breadcrumb-item active">Mobil</li>
                     </ol>
                 </div>
                 <div class="col-lg-6">
@@ -39,7 +39,6 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- Bookmark Ends-->
                 </div>
             </div>
         </div>
@@ -48,18 +47,6 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    {{-- <div class="card-header pb-0">
-                        <h5>DOM / jQuery </h5><span>Events assigned to the table can be exceptionally useful for user
-                            interaction, however you must be aware that DataTables will add and remove rows from the DOM as
-                            they are needed (i.e. when paging only the visible elements are actually available in the DOM).
-                            As such, this can lead to the odd hiccup when working with events.</span><span>One of the best
-                            ways of dealing with this is through the use of delegated events with jQuery's <code>on</code>
-                            method, as shown in this example. This
-                            example also uses the DataTables<code class="api"
-                                title="DataTables API method">row().data()API</code> method to retrieve information about
-                            the selected row - the row's data so we can show it in the <code>alert</code> message in this
-                            case.</span>
-                    </div> --}}
                     {{-- btn add --}}
                     <div class="card-header pb-0">
                         <a href="" data-bs-toggle="modal" data-bs-target="#Add" class="btn btn-primary">Tambah
@@ -68,9 +55,15 @@
                     <div class="card-body">
                         @if ($errors->any())
                             <div class="alert alert-danger alert-dismissible fade show mt-2">
+
+
+
                                 <?php
+                                
                                 $nomer = 1;
+                                
                                 ?>
+
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $nomer++ }}. {{ $error }}</li>
                                 @endforeach
@@ -83,7 +76,6 @@
                                         <th class="text-capitalize text-center">nama mobil</th>
                                         <th class="text-capitalize text-center">foto</th>
                                         <th class="text-capitalize text-center">harga</th>
-                                        <th class="text-capitalize text-center">status</th>
                                         <th class="text-capitalize text-center">deskripsi</th>
                                         <th class="text-capitalize text-center">action</th>
                                     </tr>
@@ -94,8 +86,7 @@
                                             <td class="text-center">{{ $item->nama }}</td>
                                             <td class="text-center"><img src="{{ asset($item->foto) }}" alt="gambar"
                                                     height="70px"></td>
-                                            <td class="text-center">{{ $item->harga }}</td>
-                                            <td class="text-center">{{ $item->status }}</td>
+                                            <td class="text-center">Rp. {{ number_format($item->harga, 0, ',', '.') }}</td>
                                             <td class="text-center">{{ $item->deskripsi }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
@@ -138,20 +129,7 @@
                                                                 <input class="form-control" type="number" name="harga"
                                                                     id="harga" value="{{ $item->harga }}" required>
                                                             </div>
-                                                            <div class="mb-3">
-                                                                <label class="col-form-label text-capitalize"
-                                                                    for="status">status:</label>
-                                                                <select class="form-select" name="status"
-                                                                    id="status">
-                                                                    <option value="" disabled>Pilih Status</option>
-                                                                    <option value="tersedia"
-                                                                        {{ $item->status == 'tersedia' ? 'selected' : '' }}>
-                                                                        Tersedia</option>
-                                                                    <option value="di sewa"
-                                                                        {{ $item->status == 'di sewa' ? 'selected' : '' }}>
-                                                                        Di Sewa</option>
-                                                                </select>
-                                                            </div>
+
                                                             <div class="mb-3">
                                                                 <label class="col-form-label text-capitalize"
                                                                     for="deskripsi">masukkan
@@ -190,6 +168,7 @@
                                             </div>
                                         </div>
                                         {{-- End Modal --}}
+
                                         {{-- Delete Modal --}}
                                         <div class="modal fade" id="Delete{{ $item->id }}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -225,72 +204,72 @@
                             </table>
                         </div>
                     </div>
-                    {{-- Add Modal --}}
-                    <div class="modal fade" id="Add" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Add</h5>
-                                    <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <form action="{{ route('Admin.data-mobil.add') }}" method="post"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="modal-body">
-                                        <div class="mb-3">
-                                            <label class="col-form-label text-capitalize" for="nama">masukkan nama
-                                                mobil:</label>
-                                            <input class="form-control" name="nama" id="nama" type="text"
-                                                required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="col-form-label text-capitalize" for="harga">masukkan
-                                                harga:</label>
-                                            <input class="form-control" type="number" name="harga" id="harga"
-                                                required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="col-form-label text-capitalize" for="status">status:</label>
-                                            <select class="form-select" name="status" id="status">
-                                                <option value="" disabled selected>Pilih Status</option>
-                                                <option value="tersedia">Tersedia</option>
-                                                <option value="di sewa">Di Sewa</option>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="col-form-label text-capitalize" for="deskripsi">masukkan
-                                                deskripsi:</label>
-                                            <textarea class="form-control" name="deskripsi" id="deksripsi" rows="4">
+                </div>
+                {{-- Add Modal --}}
+                <div class="modal fade" id="Add" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Add</h5>
+                                <button class="btn-close" type="button" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <form action="{{ route('Admin.data-mobil.add') }}" method="post"
+                                enctype="multipart/form-data">
+                                @csrf
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label class="col-form-label text-capitalize" for="nama">masukkan nama
+                                            mobil:</label>
+                                        <input class="form-control" name="nama" id="nama" type="text"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="col-form-label text-capitalize" for="harga">masukkan
+                                            harga:</label>
+                                        <input class="form-control" type="number" name="harga" id="harga"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="col-form-label text-capitalize" for="status">status:</label>
+                                        <select class="form-select" name="status" id="status">
+                                            <option value="" disabled selected>Pilih Status</option>
+                                            <option value="tersedia">Tersedia</option>
+                                            <option value="di sewa">Di Sewa</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="col-form-label text-capitalize" for="deskripsi">masukkan
+                                            deskripsi:</label>
+                                        <textarea class="form-control" name="deskripsi" id="deksripsi" rows="4">
 
                                             </textarea>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="col-form-label text-capitalize" for="foto">masukkan
-                                                foto:</label>
-                                            <img class="img-preview img-fluid mb-3 col-md-6">
-                                            <input class="form-control" onchange="previewImage()" type="file"
-                                                name="foto" id="foto" autocomplete="off" required>
-                                        </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
-                                            Close
-                                        </button>
-                                        <button class="btn btn-primary" type="submit">
-                                            Ok
-                                        </button>
+                                    <div class="mb-3">
+                                        <label for="foto" class="form-label">Masukkan Foto</label>
+                                        <img class="img-preview img-fluid mb-3 col-md-6">
+                                        <input type="file" onchange="previewImage()" name="foto" id="foto"
+                                            class="form-control" autocomplete="off" />
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                    <button class="btn btn-primary" type="submit">
+                                        Ok
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    {{-- End Modal --}}
                 </div>
+                {{-- End Modal --}}
             </div>
-            <!-- DOM / jQuery  Ends-->
         </div>
+        <!-- DOM / jQuery  Ends-->
+    </div>
     </div>
 
     {{-- preview image --}}
@@ -301,7 +280,6 @@
 
             imgPreview.style.display = 'block';
 
-            //data gambar
             const oFReader = new FileReader();
             oFReader.readAsDataURL(photo.files[0]);
 
