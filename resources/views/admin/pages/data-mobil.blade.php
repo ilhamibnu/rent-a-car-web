@@ -53,9 +53,9 @@
 
                         <?php
 
-                    $nomer = 1;
+                        $nomer = 1;
 
-                    ?>
+                        ?>
 
                         @foreach($errors->all() as $error)
                         <li>{{ $nomer++ }}. {{ $error }}</li>
@@ -240,6 +240,5 @@
             imgPreview.src = oFREvent.target.result;
         }
     }
-
 </script>
 @endsection
