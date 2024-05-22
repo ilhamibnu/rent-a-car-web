@@ -68,7 +68,6 @@
                         <table class="display" id="advance-1">
                             <thead>
                                 <tr>
-<<<<<<< HEAD
                                     <th>No</th>
                                     <th>Name</th>
                                     <th>Status Pembayaran</th>
@@ -98,43 +97,11 @@
                                             <a href="" data-bs-toggle="modal" data-bs-target="#Detail{{ $data->id }}" class="btn btn-info shadow btn-xs sharp mr-1"><i class="fa fa-eye"></i></a>
                                             <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Edit" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
                                             <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Delete" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-=======
-                                    <th>ID User</th>
-                                    <th>ID Transaksi</th>
-                                    <th>Tanggal Kembali</th>
-                                    <th>Tanggal Keluar</th>
-                                    <th>Status</th>
-                                    <th>Tanggal Pesan</th>
-                                    <th>Total Harga</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($transaksi as $t)
-                                <tr>
-                                    <td>{{ $t->id_user }}</td>
-                                        @foreach($t->detailTransaksi as $detail)
-                                            <td>{{ $detail->id_transaksi }}</td>
-                                            <td>{{ $detail->tanggal_kembali }}</td>
-                                            <td>{{ $detail->tanggal_keluar }}</td>
-                                        @endforeach
-                                        @if($t->detailTransaksi->isEmpty())
-                                            <td colspan="3">Tidak ada detail transaksi</td>
-                                        @endif                                                               
-                                    <td>{{ $t->status }}</td>
-                                    <td>{{ $t->tanggal }}</td>
-                                    <td>{{ $t->total_harga }}</td>
-                                    <td>
-                                        <div class="d-flex justify-content-center">
-                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Edit{{ $t->id }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Delete{{ $t->id }}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
->>>>>>> 88085088d2c1185de040867e53f7c58179fd3dcc
                                         </div>
                                     </td>
                                 </tr>
 
                                 {{-- Edit Modal --}}
-<<<<<<< HEAD
                                 <div class="modal fade" id="Detail{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -167,9 +134,6 @@
                                 {{-- End Modal --}}
                                 {{-- Edit Modal --}}
                                 <div class="modal fade" id="Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-=======
-                                <div class="modal fade" id="Edit{{ $t->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
->>>>>>> 88085088d2c1185de040867e53f7c58179fd3dcc
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -225,7 +189,7 @@
                                                         Ok
                                                     </button>
                                                 </div>
-                                            </form>                                            
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
