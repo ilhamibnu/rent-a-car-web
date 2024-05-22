@@ -16,6 +16,8 @@ class DetailTransaksi extends Model
         'id_mobil',
         'tanggal_keluar',
         'tanggal_kembali',
+        'total_harga',
+        'status_peminjaman',
     ];
 
     public function mobil()

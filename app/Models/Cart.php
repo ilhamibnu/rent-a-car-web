@@ -14,15 +14,18 @@ class Cart extends Model
     protected $fillable = [
         'id_user',
         'id_mobil',
+        'tanggal_keluar',
+        'tanggal_kembali',
+        'total_harga'
     ];
-
-    public function mobil()
-    {
-        return $this->belongsTo(Mobil::class, 'id_mobil', 'id');
-    }
 
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
+    }
+
+    public function mobil()
+    {
+        return $this->belongsTo(Mobil::class, 'id_mobil', 'id');
     }
 }

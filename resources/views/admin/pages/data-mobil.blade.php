@@ -5,12 +5,12 @@
     <div class="page-header">
         <div class="row">
             <div class="col-lg-6">
-                <h3>Advanced DataTables</h3>
+                <h3>Data Mobil</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../dashboard.html">Home</a></li>
                     <li class="breadcrumb-item">Tables</li>
                     <li class="breadcrumb-item">Data Tables</li>
-                    <li class="breadcrumb-item active">Advance init</li>
+                    <li class="breadcrumb-item active">Mobil</li>
                 </ol>
             </div>
             <div class="col-lg-6">
@@ -40,17 +40,6 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
-                <div class="card-header pb-0">
-                    <h5>DOM / jQuery </h5><span>Events assigned to the table can be exceptionally useful for user
-                        interaction, however you must be aware that DataTables will add and remove rows from the DOM as
-                        they are needed (i.e. when paging only the visible elements are actually available in the DOM).
-                        As such, this can lead to the odd hiccup when working with events.</span><span>One of the best
-                        ways of dealing with this is through the use of delegated events with jQuery's <code>on</code>
-                        method, as shown in this example. This
-                        example also uses the DataTables<code class="api" title="DataTables API method">row().data()API</code> method to retrieve information about
-                        the selected row - the row's data so we can show it in the <code>alert</code> message in this
-                        case.</span>
-                </div>
                 {{-- btn add --}}
                 <div class="card-header pb-0">
                     <a href="" data-bs-toggle="modal" data-bs-target="#Add" class="btn btn-primary">Tambah
@@ -80,7 +69,6 @@
                                     <th class="text-capitalize text-center">nama mobil</th>
                                     <th class="text-capitalize text-center">foto</th>
                                     <th class="text-capitalize text-center">harga</th>
-                                    <th class="text-capitalize text-center">status</th>
                                     <th class="text-capitalize text-center">deskripsi</th>
                                     <th class="text-capitalize text-center">action</th>
                                 </tr>
@@ -90,8 +78,7 @@
                                 <tr>
                                     <td class="text-center">{{ $item->nama }}</td>
                                     <td class="text-center"><img src="{{ asset($item->foto) }}" alt="gambar" height="70px"></td>
-                                    <td class="text-center">{{ $item->harga }}</td>
-                                    <td class="text-center">{{ $item->status }}</td>
+                                    <td class="text-center">Rp. {{ number_format($item->harga, 0, ',', '.') }}</td>
                                     <td class="text-center">{{ $item->deskripsi }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
@@ -121,16 +108,7 @@
                                                             harga:</label>
                                                         <input class="form-control" type="number" name="harga" id="harga" value="{{ $item->harga }}" required>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label class="col-form-label text-capitalize" for="status">status:</label>
-                                                        <select class="form-select" name="status" id="status">
-                                                            <option value="" disabled>Pilih Status</option>
-                                                            <option value="tersedia" {{ $item->status == 'tersedia' ? 'selected' : '' }}>
-                                                                Tersedia</option>
-                                                            <option value="di sewa" {{ $item->status == 'di sewa' ? 'selected' : '' }}>
-                                                                Di Sewa</option>
-                                                        </select>
-                                                    </div>
+
                                                     <div class="mb-3">
                                                         <label class="col-form-label text-capitalize" for="deskripsi">masukkan
                                                             deskripsi:</label>
@@ -212,14 +190,7 @@
                                             harga:</label>
                                         <input class="form-control" type="number" name="harga" id="harga" required>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="col-form-label text-capitalize" for="status">status:</label>
-                                        <select class="form-select" name="status" id="status">
-                                            <option value="" disabled selected>Pilih Status</option>
-                                            <option value="tersedia">Tersedia</option>
-                                            <option value="di sewa">Di Sewa</option>
-                                        </select>
-                                    </div>
+
                                     <div class="mb-3">
                                         <label class="col-form-label text-capitalize" for="deskripsi">masukkan
                                             deskripsi:</label>

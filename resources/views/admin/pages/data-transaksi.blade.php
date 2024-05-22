@@ -5,12 +5,12 @@
     <div class="page-header">
         <div class="row">
             <div class="col-lg-6">
-                <h3>Advanced DataTables</h3>
+                <h3>Data Transaksi</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../dashboard.html">Home</a></li>
                     <li class="breadcrumb-item">Tables</li>
                     <li class="breadcrumb-item">Data Tables</li>
-                    <li class="breadcrumb-item active">Advance init</li>
+                    <li class="breadcrumb-item active">Transaksi</li>
                 </ol>
             </div>
             <div class="col-lg-6">
@@ -40,10 +40,9 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
-                <div class="card-header pb-0">
-                    <h5>DOM / jQuery </h5><span>Events assigned to the table can be exceptionally useful for user interaction, however you must be aware that DataTables will add and remove rows from the DOM as they are needed (i.e. when paging only the visible elements are actually available in the DOM). As such, this can lead to the odd hiccup when working with events.</span><span>One of the best ways of dealing with this is through the use of delegated events with jQuery's <code>on</code> method, as shown in this example. This
-                        example also uses the DataTables<code class="api" title="DataTables API method">row().data()API</code> method to retrieve information about the selected row - the row's data so we can show it in the <code>alert</code> message in this case.</span>
-                </div>
+                {{-- <div class="card-header pb-0">
+                    <h5>Table Transaksi </h5>
+                </div> --}}
                 {{-- btn add --}}
                 <div class="card-header pb-0">
                     <a href="" data-bs-toggle="modal" data-bs-target="#Add" class="btn btn-primary">Tambah Data</a>
@@ -53,30 +52,69 @@
                         <table class="display" id="advance-1">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Status Pembayaran</th>
+                                    <th>Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($transaksi as $data )
                                 <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $data->user->name }}</td>
+                                    <td>
+                                        @if($data->status_pembayaran == 'Belum Pilih Pembayaran')
+                                        <span class="badge badge-danger">{{ $data->status_pembayaran }}</span>
+                                        @elseif($data->status_pembayaran == 'pending')
+                                        <span class="badge badge-warning">{{ $data->status_pembayaran }}</span>
+                                        @elseif($data->status_pembayaran == 'expired')
+                                        <span class="badge badge-danger">{{ $data->status_pembayaran }}</span>
+                                        @elseif($data->status_pembayaran == 'paid')
+                                        <span class="badge badge-success">{{ $data->status_pembayaran }}</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ date('d-m-Y', strtotime($data->created_at)) }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
+                                            <a href="" data-bs-toggle="modal" data-bs-target="#Detail{{ $data->id }}" class="btn btn-info shadow btn-xs sharp mr-1"><i class="fa fa-eye"></i></a>
                                             <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Edit" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
                                             <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Delete" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
+                                {{-- Edit Modal --}}
+                                <div class="modal fade" id="Detail{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Detail</h5>
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        @php
+                                                        $detail_transaksi = \App\Models\DetailTransaksi::with('transaksi','mobil')->where('id_transaksi',$data->id)->get();
+                                                        $no = 1;
+                                                        @endphp
+                                                        @foreach ($detail_transaksi as $detail)
+                                                        <li>{{ $no++ }}. {{ $detail->mobil->nama }}</li><br>
+                                                        @endforeach
+
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- End Modal --}}
                                 {{-- Edit Modal --}}
                                 <div class="modal fade" id="Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -132,7 +170,7 @@
                                     </div>
                                 </div>
                                 {{-- End Modal --}}
-
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

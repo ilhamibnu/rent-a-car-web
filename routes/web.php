@@ -7,7 +7,12 @@ use App\Http\Controllers\MobilController;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransaksiController;
-
+use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\LandingController;
+use App\Http\Controllers\User\PenyewaanController;
+use App\Http\Controllers\User\DetailProductController;
+use App\Http\Controllers\User\AuthController as UserAuthController;
+use App\Http\Controllers\User\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,27 +25,70 @@ use App\Http\Controllers\TransaksiController;
 |
 */
 
+
+/////////////////// ADMIN ///////////////////////
+
 # Auth
+Route::get('/', [AuthController::class, 'index']);
 Route::get('/login', [AuthController::class, 'index']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
-# Profil
-Route::get('/profil', [AuthController::class, 'profil']);
-Route::post('/update-profil', [AuthController::class, 'updateprofil']);
+// middleware group
+Route::middleware(['IsAdmin'])->group(function () {
+    # Profil
+    Route::get('/profil', [AuthController::class, 'profil']);
+    Route::post('/update-profil', [AuthController::class, 'updateprofil']);
 
-# Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index']);
+    # Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
-# Mobil
-Route::get('/data-mobil', [MobilController::class, 'index']);
-Route::post('/data-mobil/add', [MobilController::class, 'store'])->name('Admin.data-mobil.add');
-Route::post('/data-mobil/update/{id}', [MobilController::class, 'update'])->name('Admin.data-mobil.update');
-Route::delete('/data-mobil/delete/{id}', [MobilController::class, 'destroy'])->name('Admin.data-mobil.delete');
+    # Mobil
+    Route::get('/data-mobil', [MobilController::class, 'index']);
+    Route::post('/data-mobil/add', [MobilController::class, 'store'])->name('Admin.data-mobil.add');
+    Route::post('/data-mobil/update/{id}', [MobilController::class, 'update'])->name('Admin.data-mobil.update');
+    Route::delete('/data-mobil/delete/{id}', [MobilController::class, 'destroy'])->name('Admin.data-mobil.delete');
 
-# User
-Route::get('/data-user', [UserController::class, 'index']);
+    # User
+    Route::get('/data-user', [UserController::class, 'index']);
+    Route::post('/data-user', [UserController::class, 'store']);
+    Route::put('/data-user/{id}', [UserController::class, 'update']);
+    Route::delete('/data-user/{id}', [UserController::class, 'destroy']);
 
-# Transaksi
-Route::get('/data-transaksi', [TransaksiController::class, 'index']);
 
-# Ulasan
-Route::get('/data-ulasan', [UlasanController::class, 'index']);
+    # Transaksi
+    Route::get('/data-transaksi', [TransaksiController::class, 'index']);
+
+    # Ulasan
+    Route::get('/data-ulasan', [UlasanController::class, 'index']);
+});
+
+
+/////////////////// USER ///////////////////////
+# Auth
+Route::get('/user/login', [UserAuthController::class, 'index']);
+Route::post('/user/login', [UserAuthController::class, 'login']);
+Route::post('/user/register', [UserAuthController::class, 'register']);
+Route::get('/user/logout', [UserAuthController::class, 'logout']);
+
+Route::post('/user/update-profil', [UserAuthController::class, 'updateprofil']);
+Route::get('/user/profil', [UserAuthController::class, 'profil']);
+
+# Landing
+Route::get('/', [LandingController::class, 'index']);
+
+# Penyeawaan
+Route::get('/user/penyewaan', [PenyewaanController::class, 'index']);
+
+# Cart
+Route::get('/user/cart', [CartController::class, 'index']);
+Route::delete('/user/cart/{id}', [CartController::class, 'destroy']);
+Route::post('/user/checkout', [CartController::class, 'checkout']);
+
+# Checkout
+Route::get('/user/checkout/{id}', [CheckoutController::class, 'index']);
+
+# Detail Product
+Route::get('/user/detail-product/{id}', [DetailProductController::class, 'index']);
+Route::post('/user/detail-product/{id}', [DetailProductController::class, 'cekketersediaan']);
+Route::post('/user/booking', [DetailProductController::class, 'booking']);

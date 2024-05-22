@@ -19,13 +19,13 @@ class MobilController extends Controller
         $request->validate([
             'nama' => 'required|string',
             'harga' => 'required|numeric',
-            'status' => 'required',
+
             'deskripsi' => 'required|string',
             'foto' => 'required|image|file|max:2000'
         ], [
             'nama.required' => 'Nama Mobil Harus Diisi',
             'harga.required' => 'Harga Mobil Harus Diisi',
-            'status.required' => 'Status Mobil Harus Diisi',
+
             'deskripsi.required' => 'Deskripsi Mobil Harus Diisi',
             'foto.required' => 'Foto Mobil Harus Diisi',
             'foto.image' => 'Foto Mobil Harus Berupa Gambar',
@@ -42,7 +42,7 @@ class MobilController extends Controller
             $dataMobil = new Mobil();
             $dataMobil->nama = $request->input('nama');
             $dataMobil->harga = $request->input('harga');
-            $dataMobil->status = $request->input('status');
+
             $dataMobil->deskripsi = $request->input('deskripsi');
             $dataMobil->foto = 'img/mobil/' . $fileName;
             $dataMobil->save();
@@ -56,7 +56,7 @@ class MobilController extends Controller
         $request->validate([
             'nama' => 'required|string',
             'harga' => 'required|numeric',
-            'status' => 'required',
+
             'deskripsi' => 'required|string',
             'foto' => 'image|file|max:2000'
         ]);
@@ -65,7 +65,7 @@ class MobilController extends Controller
         if ($request->file('foto') == "") {
             $dataMobil->nama = $request->input('nama');
             $dataMobil->harga = $request->input('harga');
-            $dataMobil->status = $request->input('status');
+
             $dataMobil->deskripsi = $request->input('deskripsi');
             $dataMobil->update();
         } else {
@@ -75,7 +75,7 @@ class MobilController extends Controller
             $fileFoto->move(public_path('img/mobil'), $fileName);
             $dataMobil->nama = $request->input('nama');
             $dataMobil->harga = $request->input('harga');
-            $dataMobil->status = $request->input('status');
+
             $dataMobil->deskripsi = $request->input('deskripsi');
             $dataMobil->foto = 'img/mobil/' . $fileName;
             $dataMobil->update();

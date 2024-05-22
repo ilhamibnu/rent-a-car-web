@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
+            $table->string('no_transaksi');
             $table->string('total_harga');
-            $table->string('status');
-            $table->date('tanggal');
+            $table->string('status_pembayaran');
+            $table->string('bank');
+            $table->string('no_va');
+            $table->string('expired_at')->nullable();
             $table->timestamps();
         });
     }

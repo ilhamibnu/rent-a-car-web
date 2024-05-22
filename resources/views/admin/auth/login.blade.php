@@ -13,8 +13,7 @@
     <meta name="author" content="pixelstrap" />
     <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
-    <title>login
-        | Viho - Premium Admin Template
+    <title>Login - RodaRent
     </title>
     <!-- Google font-->
     <!-- Google font-->
@@ -67,39 +66,56 @@
             <div class="row">
                 <div class="col-12">
                     <div class="login-card">
-                        <form class="theme-form login-form">
+                        @if($errors->any())
+                        <div class="alert alert-danger alert-dismissible fade show mt-2">
+
+
+
+                            <?php
+
+                        $nomer = 1;
+
+                        ?>
+
+                            @foreach($errors->all() as $error)
+                            <li>{{ $nomer++ }}. {{ $error }}</li>
+                            @endforeach
+                        </div>
+                        @endif
+                        <form action="/login" class="theme-form login-form" method="POST">
+                            @csrf
+                            @method('POST')
                             <h4>Login</h4>
                             <h6>Welcome back! Log in to your account.</h6>
                             <div class="form-group">
                                 <label>Email Address</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-email"></i></span>
-                                    <input class="form-control" type="email" required="" placeholder="Test@gmail.com" />
+                                    <input class="form-control" name="email" type="email" required="" placeholder="Test@gmail.com" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
-                                    <input class="form-control" type="password" name="login[password]" required="" placeholder="*********" />
+                                    <input name="password" class="form-control" type="password" name="login[password]" required="" placeholder="*********" />
                                     <div class="show-hide"><span class="show"> </span></div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <div class="checkbox">
                                     <input id="checkbox1" type="checkbox" />
                                     <label for="checkbox1">Remember password</label>
                                 </div>
                                 <a class="link" href="forget-password.html">Forgot password?</a>
-                            </div>
+                            </div> --}}
                             <div class="form-group">
-                                <button class="btn btn-primary btn-block" hidden type="submit">Sign in</button>
-                                <a class="btn btn-primary btn-block" href="/dashboard">Login</a>
+                                <button class="btn btn-primary btn-block" type="submit">Sign in</button>
                             </div>
                             <div class="login-social-title">
                                 <h5>Sign in with</h5>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <ul class="login-social">
                                     <li>
                                         <a href="https://www.linkedin.com/login" target="_blank"><i data-feather="linkedin"></i></a>
@@ -115,7 +131,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <p>Don't have account?<a class="ms-2" href="sign-up.html">Create Account</a></p>
+                            <p>Don't have account?<a class="ms-2" href="sign-up.html">Create Account</a></p> --}}
                         </form>
                     </div>
                 </div>
@@ -142,7 +158,32 @@
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="{{ asset('admin/assets/js/script.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Plugin used-->
+
+    @if(Session::get('logingagal'))
+    <script>
+        Swal.fire({
+            icon: "error"
+            , title: "Gagal"
+            , text: "Email atau Password Salah"
+        });
+
+    </script>
+    @endif
+
+    @if(Session::get('logout'))
+    <script>
+        Swal.fire({
+            icon: "success"
+            , title: "Success"
+            , text: "Berhasil Logout"
+        });
+
+    </script>
+    @endif
+
+
 </body>
 
 <!-- Mirrored from laravel.pixelstrap.com/viho/login by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 25 Feb 2024 08:31:53 GMT -->

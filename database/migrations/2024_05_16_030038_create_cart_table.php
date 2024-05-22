@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('cart', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal_keluar');
+            $table->date('tanggal_kembali');
+            $table->integer('total_harga')->nullable();
             $table->timestamps();
         });
     }

@@ -88,12 +88,12 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Password</label>
-                                <input class="form-control" name="password" type="password" value="password" />
+                                <input class="form-control" name="password" type="password" value="" />
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Password</label>
-                                <input class="form-control" name="repassword" type="password" value="password" />
+                                <input class="form-control" name="repassword" type="password" value="" />
                             </div>
 
                             <div class="form-footer">
