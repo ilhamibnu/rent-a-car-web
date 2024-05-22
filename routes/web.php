@@ -49,30 +49,12 @@ Route::middleware(['IsAdmin'])->group(function () {
     Route::post('/data-mobil/update/{id}', [MobilController::class, 'update'])->name('Admin.data-mobil.update');
     Route::delete('/data-mobil/delete/{id}', [MobilController::class, 'destroy'])->name('Admin.data-mobil.delete');
 
-<<<<<<< HEAD
     # User
     Route::get('/data-user', [UserController::class, 'index']);
     Route::post('/data-user', [UserController::class, 'store']);
     Route::put('/data-user/{id}', [UserController::class, 'update']);
     Route::delete('/data-user/{id}', [UserController::class, 'destroy']);
 
-=======
-# User
-Route::get('/data-user', [UserController::class, 'index']);
-Route::post('/data-users', [UserController::class, 'store'])->name('data-users.store');
-Route::get('/data-users/{id}/edit', [UserController::class, 'edit'])->name('data-users.edit');
-Route::put('/data-users/{id}', [UserController::class, 'update'])->name('data-users.update');
-// Route::delete('/data-transaksi/{id}', [TransaksiController::class, 'destroy']);
-Route::delete('/data-users/{id}', [UserController::class, 'destroy'])->name('data-users.destroy');
-
-
-
-# Transaksi
-// Route::get('/data-transaksi', [TransaksiController::class, 'index']);
-Route::get('/data-transaksi', [TransaksiController::class, 'index'])->name('data-transaksi.index');
-Route::put('/data-transaksi/{id}', [TransaksiController::class, 'update'])->name('data-transaksi.update');
-Route::delete('/data-transaksi/{id}', [TransaksiController::class, 'destroy'])->name('data-transaksi.destroy');
->>>>>>> 88085088d2c1185de040867e53f7c58179fd3dcc
 
     # Transaksi
     Route::get('/data-transaksi', [TransaksiController::class, 'index']);
