@@ -3,22 +3,34 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transaksi;
+use App\Models\Ulasan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class PenyewaanController extends Controller
 {
     public function index()
     {
-        $transaksi = DB::table('transaksi')
-            ->join('users', 'transaksi.id_user', '=', 'users.id')
-            ->select('transaksi.*', 'users.name')
-            ->where('transaksi.id_user', auth()->user()->id)
-            ->get();
-
+        $transaksi = auth()->user()->transaksi;
 
         return view('landing.pages.penyewaan', [
             'transaksi' => $transaksi
         ]);
     }
+
+    public function storeUlasan(Request $request)
+    {
+        $request->validate([
+            'ulasan' => 'required|string',
+            'id_transaksi' => 'required|integer|exists:detail_transaksi,id'
+        ]);
+
+        $ulasan = new Ulasan();
+        $ulasan->ulasan = $request->ulasan;
+        $ulasan->id_transaksi = $request->id_transaksi;
+        $ulasan->save();
+
+        return redirect()->back()->with('success', 'Ulasan berhasil disimpan.');
+    }
+    
 }

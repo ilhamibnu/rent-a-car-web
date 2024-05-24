@@ -2334,71 +2334,33 @@
     <section class="boxcar-testimonial-section home1">
         <div class="boxcar-container">
             <div class="boxcar-title wow fadeInUp">
-                <h2>What our customers say</h2>
-                <div class="text">Rated 4.7 / 5 based on 28,370 reviews Showing our 4 & 5 star reviews</div>
+                <h2>Ulasan Pengguna</h2>
+                <div class="text">menampung ulasan dari para pengguna</div>
             </div>
-            <div class="testimonial-slider-two">
-                <div class="testimonial-slide-two">
-                    <div class="row">
-                        <div class="image-column col-lg-4 col-md-12 col-sm-12">
-                            <div class="inner-column wow fadeInUp">
-                                <div class="image-box">
-                                    <figure class="image"><img src="{{ asset('landing/images/resource/test-1.jpg') }}"
-                                            alt=""></figure>
-                                </div>
+            <div class="testimonial-slider">
+                <div class="carousel" id="testimonial-carousel">
+                    @php $slide = 1; @endphp
+                    @foreach ($ulasan as $key => $data)
+                        <div class="testimonial-slide @if ($slide == 1 && $key == 0) active @endif" id="slide{{ $slide }}">
+                            <div class="testimonial-content">
+                                <p>{{ $data->ulasan }}</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <h4>{{ $data->transaksi->user->name }}</h4>
+                                <span>{{ $data->transaksi->user->email }}</span>
                             </div>
                         </div>
-                        <div class="content-column col-lg-8 col-md-12 col-sm-12">
-                            <div class="inner-column wow fadeInUp" data-wow-delay="100ms">
-                                <ul class="rating">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <span>4.8</span>
-                                </ul>
-                                <h6 class="title">Ali TUFAN</h6>
-                                <span>Designer</span>
-                                <div class="text">I'd suggest Macklin Motors Nissan Glasgow South to
-                                    a friend because I had great service from my salesman Patrick
-                                    and all of the team.</div>
-                            </div>
-                        </div>
-                    </div>
+                        @php $slide++; @endphp
+                    @endforeach
                 </div>
-                <div class="testimonial-slide-two">
-                    <div class="row">
-                        <div class="image-column col-lg-4 col-md-12 col-sm-12">
-                            <div class="inner-column wow fadeInUp">
-                                <div class="image-box">
-                                    <figure class="image"><img src="{{ asset('landing/images/resource/test-1.jpg') }}"
-                                            alt=""></figure>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-column col-lg-8 col-md-12 col-sm-12">
-                            <div class="inner-column wow fadeInUp" data-wow-delay="100ms">
-                                <ul class="rating">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <span>4.8</span>
-                                </ul>
-                                <h6 class="title">Ali TUFAN</h6>
-                                <span>Designer</span>
-                                <div class="text">I'd suggest Macklin Motors Nissan Glasgow South to
-                                    a friend because I had great service from my salesman Patrick
-                                    and all of the team.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="navigation">
+                <button id="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                <button id="next-slide"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
+    
     <!-- End boxcar-testimonial-section -->
 
     <!-- blog section -->
@@ -2600,6 +2562,38 @@
 
             // Menetapkan atribut min ke elemen input tanggal
             dateInput.setAttribute('min', todayDate);
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let currentSlide = 1;
+            const totalSlides = document.querySelectorAll(".testimonial-slide").length;
+
+            function showSlide(slideIndex) {
+                const slides = document.querySelectorAll(".testimonial-slide");
+                if (slideIndex < 1) {
+                    currentSlide = totalSlides;
+                } else if (slideIndex > totalSlides) {
+                    currentSlide = 1;
+                }
+                slides.forEach(function(slide) {
+                    slide.classList.remove("active");
+                    slide.style.display = "none";
+                });
+                slides[currentSlide - 1].classList.add("active");
+                slides[currentSlide - 1].style.display = "block";
+            }
+
+            document.getElementById("prev-slide").addEventListener("click", function() {
+                showSlide(currentSlide -= 1);
+            });
+
+            document.getElementById("next-slide").addEventListener("click", function() {
+                showSlide(currentSlide += 1);
+            });
+
+            showSlide(currentSlide);
         });
     </script>
 @endsection

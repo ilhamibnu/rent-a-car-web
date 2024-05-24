@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Carbon\Carbon;
 use App\Models\Mobil;
+use App\Models\Ulasan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -25,19 +26,24 @@ class LandingController extends Controller
                 });
             })->where('status', 'tersedia')->get();
 
+            $ulasan = Ulasan::with('transaksi')->get();
 
             return view('landing.pages.index', [
                 'mobil' => $mobil,
                 'tanggal_keluar' => $tanggal_keluar,
-                'tanggal_kembali' => $tanggal_kembali
+                'tanggal_kembali' => $tanggal_kembali,
+                'ulasan' => $ulasan
             ]);
         } else {
             $mobil = Mobil::all();
 
+            $ulasan = Ulasan::with('transaksi')->get();
+
             return view('landing.pages.index', [
                 'mobil' => $mobil,
                 'tanggal_keluar' => '0',
-                'tanggal_kembali' => '0'
+                'tanggal_kembali' => '0',
+                'ulasan' => $ulasan
             ]);
         }
     }

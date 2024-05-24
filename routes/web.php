@@ -80,6 +80,7 @@ Route::middleware(['IsUser'])->group(function () {
 
     # Penyeawaan
     Route::get('/user/penyewaan', [PenyewaanController::class, 'index']);
+    Route::post('/ulasan/store', [PenyewaanController::class, 'storeUlasan'])->name('ulasan.store');
 
     # Cart
     Route::get('/user/cart', [CartController::class, 'index']);

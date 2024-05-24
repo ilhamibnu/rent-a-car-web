@@ -2318,5 +2318,5 @@ input.mm-check:checked:before {
 }
 
 body.modal-open .mm-slideout {
-    z-index: unset
+    z-index: 1050;
 }

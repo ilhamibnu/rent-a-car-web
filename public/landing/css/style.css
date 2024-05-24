@@ -7481,6 +7481,7 @@ Section Title
   margin-right: 80px;
 }
 
+
 /*** 
 
 ====================================================================
@@ -30240,4 +30241,30 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
 #slider-range-value01::after,
 #slider-range-value1::after {
   margin: 0 2px;
+}
+
+.navigation {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.navigation button {
+  background-color: #1a5276; /* warna biru tua cerah */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.navigation button:hover {
+  background-color: #154360; /* warna biru tua yang sedikit lebih gelap saat dihover */
+}
+
+@media (max-width: 768px) {
+  .navigation {
+      position: relative;
+      bottom: -50px;
+  }
 }
