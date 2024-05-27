@@ -86,9 +86,6 @@
                                 <label class="form-label">Email-Address</label>
                                 <input class="form-control" name="email" value="{{ Auth::user()->email }}" placeholder="your-email@domain.com" />
                             </div>
-                            @if(Auth::user()->google == '1')
-
-                            @else
                             <div class="mb-3">
                                 <label class="form-label">Password</label>
                                 <input class="form-control" name="password" type="password" value="password" />
@@ -99,7 +96,7 @@
                                 <input class="form-control" name="repassword" type="password" value="password" />
                             </div>
 
-                            @endif
+                        
 
                             <div class="form-footer">
                                 <button type="submit" class="btn btn-primary btn-block">Save</button>

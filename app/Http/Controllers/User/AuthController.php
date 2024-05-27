@@ -199,13 +199,12 @@ class AuthController extends Controller
                 //Server settings
                 $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
                 $mail->isSMTP();                                            //Send using SMTP
-                $mail->Host       = 'mail.kaliansenang.my.id';                     //Set the SMTP server to send through
+                $mail->Host       = 'monza.id.domainesia.com';                     //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
                 $mail->Username   = 'rentcar@kaliansenang.my.id';                     //SMTP username
                 $mail->Password   = 'Gituajamarah#23';                               //SMTP password
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-                $mail->Port       = 465;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
+                $mail->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
+                $mail->Port       = 465;
                 //Recipients
                 $mail->setFrom('rentcar@kaliansenang.my.id', 'Rent A Car Admin');
                 $mail->addAddress($request->email);     //Add a recipient

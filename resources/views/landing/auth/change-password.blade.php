@@ -34,7 +34,7 @@
                             <form action="/user/change-password" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input hidden name="code" {{ $user->code }} type="text">
+                                <input hidden name="code" value="{{ $user->code }}" type="text">
                                 <div class="form_boxes">
                                     <label>Password</label>
                                     <input type="password" name="password" placeholder="Password" />

@@ -58,7 +58,7 @@
                                 <span>OR</span>
                                 <div class="social-btns">
                                     {{-- <a href="#" class="fb-btn"><i class="fa-brands fa-facebook-f"></i>Continue Facebook</a> --}}
-                                    <a href="/user/redirect" class="fb-btn two"><i class="fa-brands fa-google"></i>Continue Google</a>
+                                    <a href="/user/google/redirect" class="fb-btn two"><i class="fa-brands fa-google"></i>Continue Google</a>
                                 </div>
                             </div>
                         </div>

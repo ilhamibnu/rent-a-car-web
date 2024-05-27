@@ -35,12 +35,16 @@
                                 @method('POST')
                                 <div class="form_boxes">
                                     <label>Name</label>
-                                    <input type="text" value="{{ Auth::user()->name }}" name="name" placeholder="Name" />
+                                    <input readonly type="text" value="{{ Auth::user()->name }}" name="name" placeholder="Name" />
                                 </div>
                                 <div class="form_boxes">
                                     <label>Email</label>
-                                    <input type="text" value="{{ Auth::user()->email }}" name="email" placeholder="Email" />
+                                    <input readonly type="text" value="{{ Auth::user()->email }}" name="email" placeholder="Email" />
                                 </div>
+
+                                @if(Auth::user()->google == '1')
+
+                                @else
                                 <div class="form_boxes">
                                     <label>Password</label>
                                     <input type="password" name="password" placeholder="Password" />
@@ -49,6 +53,9 @@
                                     <label>Password</label>
                                     <input type="password" name="repassword" placeholder="Password" />
                                 </div>
+
+
+                                @endif
 
                                 <div class="form-submit">
                                     <button type="submit" class="theme-btn">Update <img src="images/arrow.svg" alt="" />

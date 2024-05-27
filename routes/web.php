@@ -72,8 +72,8 @@ Route::post('/user/register', [UserAuthController::class, 'register']);
 Route::get('/user/logout', [UserAuthController::class, 'logout']);
 
 # Auth Google
-Route::get('/user/redirect', [UserAuthController::class, 'redirect']);
-Route::get('/user/callback', [UserAuthController::class, 'GoogleCallback']);
+Route::get('/user/google/redirect', [UserAuthController::class, 'redirect']);
+Route::get('/user/google/callback', [UserAuthController::class, 'GoogleCallback']);
 
 # Reset Password
 Route::get('/user/reset-password', [UserAuthController::class, 'linkresetpassword']);
