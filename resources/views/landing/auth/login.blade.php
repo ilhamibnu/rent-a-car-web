@@ -47,7 +47,7 @@
                                         <input type="checkbox" checked="checked">
                                         <span class="checkmark"></span>
                                     </label> --}}
-                                    <a href="#" class="pasword-btn">Forgotten password?</a>
+                                    <a href="/user/reset-password" class="pasword-btn">Forgotten password?</a>
                                 </div>
                                 <div class="form-submit">
                                     <button type="submit" class="theme-btn">Login <img src="images/arrow.svg" alt="" />
@@ -57,8 +57,8 @@
                             <div class="btn-box-two">
                                 <span>OR</span>
                                 <div class="social-btns">
-                                    <a href="#" class="fb-btn"><i class="fa-brands fa-facebook-f"></i>Continue Facebook</a>
-                                    <a href="#" class="fb-btn two"><i class="fa-brands fa-google"></i>Continue Google</a>
+                                    {{-- <a href="#" class="fb-btn"><i class="fa-brands fa-facebook-f"></i>Continue Facebook</a> --}}
+                                    <a href="/user/redirect" class="fb-btn two"><i class="fa-brands fa-google"></i>Continue Google</a>
                                 </div>
                             </div>
                         </div>
@@ -109,8 +109,8 @@
                             <div class="btn-box-two">
                                 <span>OR</span>
                                 <div class="social-btns">
-                                    <a href="#" class="fb-btn"><i class="fa-brands fa-facebook-f"></i>Continue Facebook</a>
-                                    <a href="#" class="fb-btn two"><i class="fa-brands fa-google"></i>Continue Google</a>
+                                    {{-- <a href="/user/redirect" class="fb-btn"><i class="fa-brands fa-facebook-f"></i>Continue Facebook</a> --}}
+                                    <a href="/user/redirect" class="fb-btn two"><i class="fa-brands fa-google"></i>Continue Google</a>
                                 </div>
                             </div>
                         </div>

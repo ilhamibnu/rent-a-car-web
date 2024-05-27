@@ -4,7 +4,12 @@ namespace App\Http\Controllers\User;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -58,6 +63,7 @@ class AuthController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->google = '0';
         $user->password = bcrypt($request->password);
         $user->save();
 
@@ -96,5 +102,132 @@ class AuthController extends Controller
     {
         auth()->logout();
         return redirect('/')->with('logout', 'Logout berhasil');
+    }
+
+    public function redirect()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function GoogleCallback()
+    {
+        try {
+
+            $data = Socialite::driver('google')->user();
+
+            $cekuser = User::where('email', $data->email)->first();
+
+            if ($cekuser) {
+                Auth::login($cekuser);
+                if (Auth::user()->role == 'admin') {
+                    return redirect('/dashboard')->with('login', 'Anda berhasil login');
+                } else {
+                    return redirect('/')->with('login', 'Anda berhasil login');
+                }
+            } else {
+                $newuser = new User;
+                $newuser->name = $data->name;
+                $newuser->email = $data->email;
+                $newuser->google = '1';
+                $newuser->password = bcrypt('fgyqwcbrq3bgbw7rq3bbubhjwfvb3q8yvbcbruq3b7587gucrxiuqr4cb');
+                $newuser->save();
+
+                Auth::login($newuser);
+                if (Auth::user()->role == 'admin') {
+                    return redirect('/dashboard')->with('login', 'Anda berhasil login');
+                } else {
+                    return redirect('/')->with('login', 'Anda berhasil login');
+                }
+            }
+        } catch (Exception $e) {
+            return redirect('/loginuser')->with('loginerror', 'Login Gagal');
+        }
+    }
+
+
+    public function linkresetpassword()
+    {
+        return view('landing.auth.reset-password');
+    }
+
+    public function changepassword($code)
+    {
+        $user = User::where('code', $code)->where('status_code', 'aktif')->where('role', 'user')->first();
+        if ($user) {
+            return view('landing.auth.change-password', [
+                'user' => $user,
+            ]);
+        } else {
+            return redirect('/')->with('linkkadaluarsa', 'Reset Password Gagal');
+        }
+    }
+
+    public function changepasswordpost(Request $request)
+    {
+        $user = User::where('code', $request->code)->where('status_code', 'aktif')->where('role', 'user')->first();
+        $request->validate([
+            'password' => 'required',
+            'repassword' => 'required|same:password',
+        ], [
+            'password.required' => 'Password tidak boleh kosong',
+            'repassword.required' => 'Re-Password tidak boleh kosong',
+            'repassword.same' => 'Re-Password tidak sama dengan Password',
+        ]);
+
+        $user->password = bcrypt($request->password);
+        $user->code = null;
+        $user->status_code = "tidak_aktif";
+        $user->save();
+
+        return redirect('/')->with('resetpasswordberhasil', 'Reset Password Berhasil');
+    }
+
+    public function sendlinkresetpassword(Request $request)
+    {
+        $request->validate([
+            'email' => ['required'],
+        ], [
+            'email.required' => 'Email tidak boleh kosong',
+        ]);
+
+        $user = User::where('email', $request->email)->where('role', 'user')->first();
+
+        if ($user) {
+            try {
+                $mail = new PHPMailer(true);
+
+                //Server settings
+                $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+                $mail->isSMTP();                                            //Send using SMTP
+                $mail->Host       = 'mail.kaliansenang.my.id';                     //Set the SMTP server to send through
+                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                $mail->Username   = 'rentcar@kaliansenang.my.id';                     //SMTP username
+                $mail->Password   = 'Gituajamarah#23';                               //SMTP password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                $mail->Port       = 465;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+                //Recipients
+                $mail->setFrom('rentcar@kaliansenang.my.id', 'Rent A Car Admin');
+                $mail->addAddress($request->email);     //Add a recipient
+
+                $Code = substr((str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")), 0, 10);
+
+                //Content
+                $mail->isHTML(true);                                  //Set email format to HTML
+                $mail->Subject = 'Password Reset';
+                $mail->Body    = 'To reset your password, please click the link below:<br><br><a href="http://127.0.0.1:8000/user/change-password/' . $Code . '">Reset Password</a>';
+                $updatecode = User::where('email', '=', $request->email)->first();
+                $updatecode->code = $Code;
+                $updatecode->status_code = 'aktif';
+                $updatecode->save();
+
+                $mail->send();
+
+                return redirect('/user/reset-password')->with('linkresetdikirim', 'Link reset password telah dikirim ke email');
+            } catch (Exception $e) {
+            }
+        } else {
+            return redirect()->back()->with('emailtidakditemukan', 'Email tidak ditemukan');
+        }
     }
 }

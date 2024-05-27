@@ -71,6 +71,16 @@ Route::post('/user/login', [UserAuthController::class, 'login']);
 Route::post('/user/register', [UserAuthController::class, 'register']);
 Route::get('/user/logout', [UserAuthController::class, 'logout']);
 
+# Auth Google
+Route::get('/user/redirect', [UserAuthController::class, 'redirect']);
+Route::get('/user/callback', [UserAuthController::class, 'GoogleCallback']);
+
+# Reset Password
+Route::get('/user/reset-password', [UserAuthController::class, 'linkresetpassword']);
+Route::post('/user/reset-password', [UserAuthController::class, 'sendlinkresetpassword']);
+Route::get('/user/change-password/{code}', [UserAuthController::class, 'changepassword']);
+Route::post('/user/change-password', [UserAuthController::class, 'changepasswordpost']);
+
 # Landing
 Route::get('/', [LandingController::class, 'index']);
 

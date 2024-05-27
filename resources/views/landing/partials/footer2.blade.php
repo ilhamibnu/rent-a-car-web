@@ -93,12 +93,12 @@
                         <h4 class="widget-title">Vehicles Type</h4>
                         <div class="widget-content">
                             <a href="#" class="store">
-                                <img src="images/resource/apple.png">
+                                <img src="{{ asset('landing/images/resource/apple.png') }}">
                                 <span>Download on the</span>
                                 <h6 class="title">Apple Store</h6>
                             </a>
                             <a href="#" class="store two">
-                                <img src="images/resource/play.png">
+                                <img src="{{ asset('landing/images/resource/play-2.png') }}">
                                 <span>Get in on</span>
                                 <h6 class="title">Google Play</h6>
                             </a>
