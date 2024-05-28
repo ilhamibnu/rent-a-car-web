@@ -40,13 +40,6 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
-                {{-- <div class="card-header pb-0">
-                    <h5>Table Transaksi </h5>
-                </div> --}}
-                {{-- btn add --}}
-                {{-- <div class="card-header pb-0">
-                    <a href="" data-bs-toggle="modal" data-bs-target="#Add" class="btn btn-primary">Tambah Data</a>
-                </div> --}}
                 <div class="card-body">
                     @if ($errors->any())
                     <div class="alert alert-danger alert-dismissible fade show mt-2">
@@ -111,7 +104,7 @@
                                                 <li>Status Peminjaman : {{ $detail->status_peminjaman }}</li>
                                                 <li>
                                                     <div class="d-flex justify-content-center m-2">
-                                                        <a href="" data-bs-toggle="modal" data-bs-target="#ubahstatus{{ $data->id }}" class="btn btn-sm btn-primary">Ubah Status</a>
+                                                        <a href="" data-bs-toggle="modal" data-bs-target="#ubahstatus{{ $data->id }}" class="btn btn-sm btn-info">Ubah Status</a>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -165,101 +158,14 @@
                                 </tr>
 
 
-                                {{-- Edit Modal --}}
-                                {{-- <div class="modal fade" id="Edit" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Edit</h5>
-                                                        <button class="btn-close" type="button" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <form action="{{ route('data-transaksi.update', $t->id) }}"
-                                method="post" enctype="multipart/form-data">
-                                @csrf
-                                @method('PUT')
-                                <div class="modal-body">
-                                    <div class="mb-3">
-                                        <label class="col-form-label text-capitalize" for="id_user">ID User:</label>
-                                        <input class="form-control" name="id_user" id="id_user" type="text" value="{{ $t->id_user }}" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="col-form-label text-capitalize" for="id_transaksi">ID Transaksi:</label>
-                                        <input class="form-control" name="id_transaksi" id="id_transaksi" type="text" value="{{ $detail->id_transaksi }}" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="col-form-label text-capitalize" for="tanggal_kembali">Tanggal Kembali:</label>
-                                        <input class="form-control" type="date" name="tanggal_kembali" id="tanggal_kembali" value="{{ $detail->tanggal_kembali }}" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="col-form-label text-capitalize" for="tanggal_keluar">Tanggal Keluar:</label>
-                                        <input class="form-control" type="date" name="tanggal_keluar" id="tanggal_keluar" value="{{ $detail->tanggal_keluar }}" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="col-form-label text-capitalize" for="status">Status:</label>
-                                        <select class="form-select" name="status" id="status">
-                                            <option value="" disabled>Pilih Status</option>
-                                            <option value="Selesai" {{ $t->status == 'Selesai' ? 'selected' : '' }}>
-                                                Selesai
-                                            </option>
-                                            <option value="Belum selesai" {{ $t->status == 'Belum Selesai' ? 'selected' : '' }}>
-                                                Belum Selesai
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="col-form-label text-capitalize" for="tanggal">Tanggal:</label>
-                                        <input class="form-control" type="date" name="tanggal" id="tanggal" value="{{ $t->tanggal }}" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="col-form-label text-capitalize" for="total_harga">Total Harga:</label>
-                                        <input class="form-control" type="number" name="total_harga" id="total_harga" value="{{ $t->total_harga }}" required>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
-                                        Close
-                                    </button>
-                                    <button class="btn btn-primary" type="submit">
-                                        Ok
-                                    </button>
-                                </div>
-                                </form>
-                    </div>
-                </div>
-            </div> --}}
-            {{-- End Modal --}}
 
-            {{-- Delete Modal --}}
-            {{-- <div class="modal fade" id="Delete{{ $t->id }}" tabindex="-1"
-            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Delete</h5>
-                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Anda Yakin Akan Menghapus ?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
-                            Close
-                        </button>
-                        <form action="{{ route('data-transaksi.destroy', $t->id) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger" id="delete-record{{ $t->id }}">Ya, Hapus</button>
-                        </form>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-        </div> --}}
-        {{-- End Modal --}}
-        @endforeach
-        </tbody>
-        </table>
+        </div>
     </div>
 </div>
 @endsection

@@ -150,7 +150,7 @@
                                     </g>
                                 </svg>
                             </div>
-                            <h5>{{ $jumlah_ulasan }}</h5>
+                            <h5>Jumlah Ulasan</h5>
                             <p>{{ $jumlah_ulasan }}</p>
                             {{-- <a class="btn-arrow arrow-primary" href="javascript:void(0)"><i class="toprightarrow-primary fa fa-arrow-up me-2"></i>95.54% </a> --}}
                             <div class="parrten">
