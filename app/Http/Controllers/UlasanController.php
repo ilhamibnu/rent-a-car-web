@@ -8,10 +8,18 @@ use Illuminate\Http\Request;
 
 class UlasanController extends Controller
 {
+    // public function index()
+    // {
+    //     $ulasan = Ulasan::with('transaksi')->get();
+    //     return view('landing.pages.index', ['ulasan' => $ulasan]);
+    // }
+
     public function index()
     {
         $ulasan = Ulasan::with('transaksi')->get();
-        return view('landing.pages.index', ['ulasan' => $ulasan]);
+        return view('admin.pages.data-ulasan', [
+            'ulasan' => $ulasan
+        ]);
     }
 
     public function store(Request $request)
@@ -27,6 +35,6 @@ class UlasanController extends Controller
         $ulasan->save();
 
         return redirect()->back()->with('success', 'Ulasan berhasil disimpan.');
-    } 
-    
+    }
+
 }

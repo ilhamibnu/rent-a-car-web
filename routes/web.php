@@ -58,6 +58,7 @@ Route::middleware(['IsAdmin'])->group(function () {
 
     # Transaksi
     Route::get('/data-transaksi', [TransaksiController::class, 'index']);
+    Route::post('/transaksi/ubah-status-peminjaman', [TransaksiController::class, 'ubahstatus']);
 
     # Ulasan
     Route::get('/data-ulasan', [UlasanController::class, 'index']);

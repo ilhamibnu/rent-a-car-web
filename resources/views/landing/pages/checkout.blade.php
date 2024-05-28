@@ -55,9 +55,10 @@
                         <ul>
                             <li>
                                 <div class="shipp">
-                                    <input type="radio" id="c4" name="cc2">
+                                    {{-- // selected --}}
+                                    <input checked type="radio" id="c1" name="cc" />
                                     <label for="c4"><span></span>
-                                        <small>Direct Bank Transfer</small>
+                                        <small>Payment Gateway</small>
                                     </label>
                                 </div>
                                 <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
@@ -65,7 +66,7 @@
                         </ul>
                     </div>
                     <div class="form-submit">
-                        <button id="pay-button" class="theme-btn w-100">Place order <img src="images/arrow.svg" alt="" /></button>
+                        <button id="pay-button" class="theme-btn w-100">Pay <img src="images/arrow.svg" alt="" /></button>
                     </div>
                     @else
                     <div class="payment-options">

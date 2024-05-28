@@ -220,6 +220,17 @@
 
     </script>
     @endif
+
+    @if(Session::get('statusubah'))
+    <script>
+        Swal.fire({
+            icon: "success"
+            , title: "Success"
+            , text: "Status Berhasil Diubah"
+        });
+
+    </script>
+    @endif
 </body>
 
 
