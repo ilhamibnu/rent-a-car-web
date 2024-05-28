@@ -2342,12 +2342,21 @@
                     @php $slide = 1; @endphp
                     @foreach ($ulasan as $key => $data)
                         <div class="testimonial-slide @if ($slide == 1 && $key == 0) active @endif" id="slide{{ $slide }}">
-                            <div class="testimonial-content">
-                                <p>{{ $data->ulasan }}</p>
-                            </div>
+                            
+                            @foreach ($data->transaksi->detailTransaksi as $detail)
+                                <div>
+                                    <strong>Mobil:</strong> {{ $detail->mobil->nama }}
+                                    <img src="{{ asset($detail->mobil->foto) }}" alt="{{ $detail->mobil->nama }}" style="max-width: 300px; transition: transform 0.3s;">
+                                </div>
+                            @endforeach
+
                             <div class="testimonial-author">
                                 <h4>{{ $data->transaksi->user->name }}</h4>
                                 <span>{{ $data->transaksi->user->email }}</span>
+                            </div>
+                            
+                            <div class="testimonial-content">
+                                <p>{{ $data->ulasan }}</p>
                             </div>
                         </div>
                         @php $slide++; @endphp
@@ -2359,8 +2368,7 @@
                 <button id="next-slide"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
-    </section>
-    
+    </section>    
     <!-- End boxcar-testimonial-section -->
 
     <!-- blog section -->

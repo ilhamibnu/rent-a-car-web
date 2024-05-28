@@ -7,14 +7,21 @@ use App\Models\Cart;
 use App\Models\Mobil;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Ulasan;
 
 class DetailProductController extends Controller
 {
     public function index($id)
     {
         $mobil = Mobil::find($id);
+        $ulasan = Ulasan::whereHas('transaksi', function ($query) use ($mobil) {
+            $query->whereHas('detailTransaksi', function ($query) use ($mobil) {
+                $query->where('id_mobil', $mobil->id);
+            });
+        })->get();
         return view('landing.pages.detail-product', [
             'mobil' => $mobil,
+            'ulasan' => $ulasan,
             'tanggal_keluar' => '0',
             'tanggal_kembali' => '0',
             'filtermobil' => '1',

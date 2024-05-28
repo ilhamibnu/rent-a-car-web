@@ -30268,3 +30268,7 @@ li.nav-sub.mm-listitem .mm-listitem__btn {
       bottom: -50px;
   }
 }
+
+.toggle-reviews .review.hidden {
+  display: none;
+}
