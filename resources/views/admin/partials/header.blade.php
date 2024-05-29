@@ -1,9 +1,12 @@
 <div class="page-main-header">
     <div class="main-header-right row m-0">
         <div class="main-header-left">
-            <div class="logo-wrapper"><a href="dashboard.html"><img class="img-fluid" src="assets/images/logo/logo.png" alt=""></a></div>
-            <div class="dark-logo-wrapper"><a href="dashboard.html"><img class="img-fluid" src="assets/images/logo/dark-logo.png" alt=""></a></div>
-            <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center" id="sidebar-toggle"> </i></div>
+            {{-- <div class="logo-wrapper"><a href="dashboard.html"><img class="img-fluid" src="assets/images/logo/logo.png"
+                        alt=""></a></div> --}}
+            {{-- <div class="dark-logo-wrapper"><a href="dashboard.html"><img class="img-fluid"
+                        src="assets/images/logo/dark-logo.png" alt=""></a></div> --}}
+            <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center" id="sidebar-toggle">
+                </i></div>
         </div>
         <div class="left-menu-header col">
             <ul>
@@ -19,21 +22,28 @@
         </div>
         <div class="nav-right col pull-right right-menu p-0">
             <ul class="nav-menus">
-                <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
+                <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
+                            data-feather="maximize"></i></a></li>
                 <li class="onhover-dropdown">
                     <div class="bookmark-box"><i data-feather="star"></i></div>
                     <div class="bookmark-dropdown onhover-show-div">
                         <div class="form-group mb-0">
                             <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-search"></i></span></div>
+                                <div class="input-group-prepend"><span class="input-group-text"><i
+                                            class="fa fa-search"></i></span></div>
                                 <input class="form-control" type="text" placeholder="Search for bookmark...">
                             </div>
                         </div>
                         <ul>
-                            <li class="add-to-bookmark"><i class="bookmark-icon" data-feather="inbox"></i>Email<span class="pull-right"><i data-feather="star"></i></span></li>
-                            <li class="add-to-bookmark"><i class="bookmark-icon" data-feather="message-square"></i>Chat<span class="pull-right"><i data-feather="star"></i></span></li>
-                            <li class="add-to-bookmark"><i class="bookmark-icon" data-feather="command"></i>Feather Icon<span class="pull-right"><i data-feather="star"></i></span></li>
-                            <li class="add-to-bookmark"><i class="bookmark-icon" data-feather="airplay"></i>Widgets<span class="pull-right"><i data-feather="star"> </i></span></li>
+                            <li class="add-to-bookmark"><i class="bookmark-icon" data-feather="inbox"></i>Email<span
+                                    class="pull-right"><i data-feather="star"></i></span></li>
+                            <li class="add-to-bookmark"><i class="bookmark-icon"
+                                    data-feather="message-square"></i>Chat<span class="pull-right"><i
+                                        data-feather="star"></i></span></li>
+                            <li class="add-to-bookmark"><i class="bookmark-icon" data-feather="command"></i>Feather
+                                Icon<span class="pull-right"><i data-feather="star"></i></span></li>
+                            <li class="add-to-bookmark"><i class="bookmark-icon" data-feather="airplay"></i>Widgets<span
+                                    class="pull-right"><i data-feather="star"> </i></span></li>
                         </ul>
                     </div>
                 </li>
@@ -41,7 +51,8 @@
                     <div class="notification-box"><i data-feather="bell"></i><span class="dot-animated"></span></div>
                     <ul class="notification-dropdown onhover-show-div">
                         <li>
-                            <p class="f-w-700 mb-0">You have 3 Notifications<span class="pull-right badge badge-primary badge-pill">4</span></p>
+                            <p class="f-w-700 mb-0">You have 3 Notifications<span
+                                    class="pull-right badge badge-primary badge-pill">4</span></p>
                         </li>
                         <li class="noti-primary">
                             <div class="media">
@@ -54,7 +65,8 @@
                         </li>
                         <li class="noti-secondary">
                             <div class="media">
-                                <span class="notification-bg bg-light-secondary"><i data-feather="check-circle"> </i></span>
+                                <span class="notification-bg bg-light-secondary"><i data-feather="check-circle">
+                                    </i></span>
                                 <div class="media-body">
                                     <p>Order Complete</p>
                                     <span>1 hour ago</span>
@@ -89,7 +101,7 @@
                     <ul class="chat-dropdown onhover-show-div">
                         <li>
                             <div class="media">
-                                <img class="img-fluid rounded-circle me-3" src="assets/images/user/4.jpg" alt="">
+                                {{-- <img class="img-fluid rounded-circle me-3" src="assets/images/user/4.jpg" alt=""> --}}
                                 <div class="media-body">
                                     <span>Ain Chavez</span>
                                     <p class="f-12 light-font">Lorem Ipsum is simply dummy...</p>
@@ -99,7 +111,7 @@
                         </li>
                         <li>
                             <div class="media">
-                                <img class="img-fluid rounded-circle me-3" src="assets/images/user/1.jpg" alt="">
+                                {{-- <img class="img-fluid rounded-circle me-3" src="assets/images/user/1.jpg" alt=""> --}}
                                 <div class="media-body">
                                     <span>Erica Hughes</span>
                                     <p class="f-12 light-font">Lorem Ipsum is simply dummy...</p>
@@ -109,7 +121,7 @@
                         </li>
                         <li>
                             <div class="media">
-                                <img class="img-fluid rounded-circle me-3" src="assets/images/user/2.jpg" alt="">
+                                {{-- <img class="img-fluid rounded-circle me-3" src="assets/images/user/2.jpg" alt=""> --}}
                                 <div class="media-body">
                                     <span>Kori Thomas</span>
                                     <p class="f-12 light-font">Lorem Ipsum is simply dummy...</p>
@@ -121,7 +133,8 @@
                     </ul>
                 </li>
                 <li class="onhover-dropdown p-0">
-                    <button hidden class="btn btn-primary-light" type="button"><i data-feather="log-out"></i>Log out</button>
+                    <button hidden class="btn btn-primary-light" type="button"><i data-feather="log-out"></i>Log
+                        out</button>
                     <a class="btn btn-primary-light" href="/logout"><i data-feather="log-out"></i>Log out</a>
                 </li>
             </ul>
