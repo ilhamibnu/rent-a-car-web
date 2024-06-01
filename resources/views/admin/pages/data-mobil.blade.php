@@ -7,37 +7,15 @@
                 <div class="col-lg-6">
                     <h3>Data Mobil</h3>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="../dashboard.html">Home</a></li>
-                        <li class="breadcrumb-item">Tables</li>
-                        <li class="breadcrumb-item">Data Tables</li>
-                        <li class="breadcrumb-item active">Mobil</li>
+                        <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+
+                        <li class="breadcrumb-item active">Data Mobil</li>
                     </ol>
                 </div>
                 <div class="col-lg-6">
                     <!-- Bookmark Start-->
                     <div class="bookmark">
-                        <ul>
-                            <li><a href="javascript:void(0)" data-container="body" data-bs-toggle="popover"
-                                    data-placement="top" title="" data-original-title="Tables"><i
-                                        data-feather="inbox"></i></a></li>
-                            <li><a href="javascript:void(0)" data-container="body" data-bs-toggle="popover"
-                                    data-placement="top" title="" data-original-title="Chat"><i
-                                        data-feather="message-square"></i></a></li>
-                            <li><a href="javascript:void(0)" data-container="body" data-bs-toggle="popover"
-                                    data-placement="top" title="" data-original-title="Icons"><i
-                                        data-feather="command"></i></a></li>
-                            <li><a href="javascript:void(0)" data-container="body" data-bs-toggle="popover"
-                                    data-placement="top" title="" data-original-title="Learning"><i
-                                        data-feather="layers"></i></a></li>
-                            <li>
-                                <a href="javascript:void(0)"><i class="bookmark-search" data-feather="star"></i></a>
-                                <form class="form-inline search-form">
-                                    <div class="form-group form-control-search">
-                                        <input type="text" placeholder="Search..">
-                                    </div>
-                                </form>
-                            </li>
-                        </ul>
+
                     </div>
                 </div>
             </div>
@@ -73,6 +51,7 @@
                             <table class="display" id="advance-1">
                                 <thead>
                                     <tr>
+                                        <th class="text-capitalize text-center">Jenis Kendaraan</th>
                                         <th class="text-capitalize text-center">nama mobil</th>
                                         <th class="text-capitalize text-center">foto</th>
                                         <th class="text-capitalize text-center">harga</th>
@@ -83,6 +62,7 @@
                                 <tbody>
                                     @foreach ($dataMobils as $item)
                                         <tr>
+                                            <td class="text-center">{{ $item->jenis_kendaraan }}</td>
                                             <td class="text-center">{{ $item->nama }}</td>
                                             <td class="text-center"><img src="{{ asset($item->foto) }}" alt="gambar"
                                                     height="70px"></td>
@@ -116,6 +96,16 @@
                                                         @csrf
                                                         <div class="modal-body">
                                                             <div class="mb-3">
+
+                                                                <label class="col-form-label text-capitalize"
+                                                                    for="nama">jenis
+                                                                    Kendaraan:</label>
+                                                                <input class="form-control" name="nama" id="nama"
+                                                                    type="text" value="{{ $item->jenis_kendaraan }}"
+                                                                    required readonly>
+                                                            </div>
+                                                            <div class="mb-3">
+
                                                                 <label class="col-form-label text-capitalize"
                                                                     for="nama">masukkan nama
                                                                     mobil:</label>
@@ -223,8 +213,17 @@
                                 @csrf
                                 <div class="modal-body">
                                     <div class="mb-3">
+                                        <label class="col-form-label text-capitalize" for="jenis_kendaraan">Jenis
+                                            Kendaraan:</label>
+                                        <select class="form-select" name="jenis_kendaraan" id="jenis_kendaraan">
+                                            <option value="motor">Motor</option>
+                                            <option value="mobil">Mobil</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+
                                         <label class="col-form-label text-capitalize" for="nama">masukkan nama
-                                            mobil:</label>
+                                            kendaraan:</label>
                                         <input class="form-control" name="nama" id="nama" type="text"
                                             required>
                                     </div>
@@ -262,7 +261,7 @@
                                         Close
                                     </button>
                                     <button class="btn btn-primary" type="submit">
-                                        Ok
+                                        Save
                                     </button>
                                 </div>
                             </form>
