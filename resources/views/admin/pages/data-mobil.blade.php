@@ -282,7 +282,7 @@
 
             const file = input.files[0];
             if (file) {
-                imgPreview.style.display = 'block'; // Ensure the image element is visible
+                imgPreview.style.display = 'block';
 
                 const oFReader = new FileReader();
                 oFReader.readAsDataURL(file);
