@@ -64,10 +64,13 @@
                                         <span class="badge badge-danger">{{ $data->status_pembayaran }}</span>
                                         @elseif($data->status_pembayaran == 'pending')
                                         <span class="badge badge-warning">{{ $data->status_pembayaran }}</span>
+
                                         @elseif($data->status_pembayaran == 'expired')
                                         <span class="badge badge-danger">{{ $data->status_pembayaran }}</span>
+
                                         @elseif($data->status_pembayaran == 'paid')
                                         <span class="badge badge-success">{{ $data->status_pembayaran }}</span>
+
                                         @endif
                                     </td>
                                     <td>{{ date('d-m-Y', strtotime($data->created_at)) }}</td>
@@ -135,14 +138,44 @@
                                     </td>
                                     <td>
                                         <div class="d-flex justify-content-center">
-                                            {{-- <a href="" data-bs-toggle="modal" data-bs-target="#Detail{{ $data->id }}" class="btn btn-info shadow btn-xs sharp mr-1"><i class="fa fa-eye"></i></a> --}}
-                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Edit" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Delete" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            <a href="" data-bs-toggle="modal" data-bs-target="#detailbayar{{ $data->id }}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-eye"></i></a>
+                                            {{-- <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Edit" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#Delete" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a> --}}
                                         </div>
                                     </td>
                                 </tr>
 
+                                {{-- Edit Status Modal --}}
+                                <div class="modal fade" id="detailbayar{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Detail Pembayaran</h5>
+                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
 
+                                            @csrf
+                                            @method('POST')
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <ul>
+                                                        <li>Bank : {{ $data->bank }} </li>
+                                                        <li>No Virtual : {{ $data->no_va }} </li>
+                                                        <li>Expired : {{ $data->expired_at }}
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- End Modal --}}
 
                                 @endforeach
                             </tbody>
