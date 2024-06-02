@@ -15,39 +15,41 @@ class MobilController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'nama' => 'required|string',
-            'harga' => 'required|numeric',
-            'deskripsi' => 'required|string',
-            'foto' => 'required|image|file|max:2000'
-        ], [
-            'nama.required' => 'Nama Mobil Harus Diisi',
-            'harga.required' => 'Harga Mobil Harus Diisi',
-            'deskripsi.required' => 'Deskripsi Mobil Harus Diisi',
-            'foto.required' => 'Foto Mobil Harus Diisi',
-            'foto.image' => 'Foto Mobil Harus Berupa Gambar',
-            'foto.file' => 'Foto Mobil Harus Berupa File',
-            'foto.max' => 'Foto Mobil Maksimal 2MB'
+{
+    $request->validate([
+        'jenis_kendaraan'=>'required|string',
+        'nama' => 'required|string',
+        'harga' => 'required|numeric',
+        'deskripsi' => 'required|string',
+        'foto' => 'required|image|file|max:2000'
+    ], [
+        'nama.required' => 'Nama Mobil Harus Diisi',
+        'harga.required' => 'Harga Mobil Harus Diisi',
+        'deskripsi.required' => 'Deskripsi Mobil Harus Diisi',
+        'foto.required' => 'Foto Mobil Harus Diisi',
+        'foto.image' => 'Foto Mobil Harus Berupa Gambar',
+        'foto.file' => 'Foto Mobil Harus Berupa File',
+        'foto.max' => 'Foto Mobil Maksimal 2MB'
 
-        ]);
+    ]);
 
-        if ($request->file('foto')) {
-            $fileFoto = $request->file('foto');
-            $fileName = time() . '_' . $fileFoto->getClientOriginalName();
-            $fileFoto->move(public_path('img/mobil'), $fileName);
+    if ($request->file('foto')) {
+        $fileFoto = $request->file('foto');
+        $fileName = time() . '_' . $fileFoto->getClientOriginalName();
+        $fileFoto->move(public_path('img/mobil'), $fileName);
 
-            $dataMobil = new Mobil();
-            $dataMobil->nama = $request->input('nama');
-            $dataMobil->harga = $request->input('harga');
-
-            $dataMobil->deskripsi = $request->input('deskripsi');
-            $dataMobil->foto = 'img/mobil/' . $fileName;
-            $dataMobil->save();
-        }
-
-        return redirect()->back()->with('store', 'Berhasil Menambahkan Data Mobil');
+        $dataMobil = new Mobil();
+        $dataMobil->jenis_kendaraan = $request->input('jenis_kendaraan'); // Perhatikan perubahan ini
+        $dataMobil->nama = $request->input('nama');
+        $dataMobil->harga = $request->input('harga');
+        $dataMobil->deskripsi = $request->input('deskripsi');
+        $dataMobil->foto = 'img/mobil/' . $fileName;
+        $dataMobil->save();
     }
+
+    return redirect()->back()->with('store', 'Berhasil Menambahkan Data Mobil');
+}
+
 
     public function update(Request $request, $id)
     {
