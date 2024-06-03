@@ -22,10 +22,10 @@
                                                 <span>Tipe Kendaraan</span>
                                                 <i class="fa fa-angle-down"></i>
                                             </div>
-                                            <input type="hidden" name="gender">
+                                            <input type="hidden" name="jenis_kendaraan" id="jenis_kendaraan">
                                             <ul class="dropdown" style="display: none;">
-                                                <li>Audi</li>
-                                                <li>Honda</li>
+                                                <li data-value="motor">Motor</li>
+                                                <li data-value="mobil">Mobil</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -2580,6 +2580,15 @@
 
             // Menetapkan atribut min ke elemen input tanggal
             dateInput.setAttribute('min', todayDate);
+        });
+        // filter jenis_kendaraan cuy...
+        document.querySelectorAll('.dropdown li').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelector('.select span').textContent = this.textContent;
+                document.getElementById('jenis_kendaraan').value = this.getAttribute(
+                    'data-value');
+
+            });
         });
     </script>
 
