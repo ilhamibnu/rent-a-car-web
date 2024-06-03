@@ -17,7 +17,7 @@ class Mobil extends Model
         'deskripsi',
         'harga',
         'status',
-        'tipe',
+        'jenis_kendaraan',
     ];
 
 
