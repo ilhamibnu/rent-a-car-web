@@ -963,10 +963,10 @@
         var reviews = document.querySelectorAll('.toggle-reviews .review.hidden');
 
         reviews.forEach(function(review) {
-            review.style.display = 'block'; // Tampilkan elemen yang disembunyikan
+            review.style.display = 'block';
         });
 
-        button.style.display = 'none'; // Sembunyikan tombol "Lihat Semua"
+        button.style.display = 'none';
     }
 
 </script>

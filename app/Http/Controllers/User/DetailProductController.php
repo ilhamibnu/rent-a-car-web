@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Carbon\Carbon;
 use App\Models\Cart;
+use App\Models\Transaksi;
 use App\Models\Mobil;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,11 +15,10 @@ class DetailProductController extends Controller
     public function index($id)
     {
         $mobil = Mobil::find($id);
-        $ulasan = Ulasan::whereHas('transaksi', function ($query) use ($mobil) {
-            $query->whereHas('detailTransaksi', function ($query) use ($mobil) {
-                $query->where('id_mobil', $mobil->id);
-            });
-        })->get();
+        $ulasan = Ulasan::whereHas('transaksi.detailTransaksi', function ($query) use ($mobil) {
+            $query->where('id_mobil', $mobil->id);
+        })->with('transaksi.user')->get();
+
         return view('landing.pages.detail-product', [
             'mobil' => $mobil,
             'ulasan' => $ulasan,
@@ -31,8 +31,12 @@ class DetailProductController extends Controller
     public function detail($id, $tanggal_keluar, $tanggal_kembali)
     {
         $mobil = Mobil::find($id);
+        $ulasan = Ulasan::whereHas('transaksi.detailTransaksi', function ($query) use ($mobil) {
+            $query->where('id_mobil', $mobil->id);
+        })->with('transaksi.user')->get();
         return view('landing.pages.detail-product', [
             'mobil' => $mobil,
+            'ulasan' => $ulasan,
             'tanggal_keluar' => $tanggal_keluar,
             'tanggal_kembali' => $tanggal_kembali,
             'filtermobil' => '0',
@@ -63,9 +67,15 @@ class DetailProductController extends Controller
             return redirect()->back()->with('mobiltidakada', 'Mobil tidak tersedia pada tanggal tersebut');
         }
 
+        
+        $ulasan = Ulasan::whereHas('transaksi.detailTransaksi', function ($query) use ($mobil) {
+            $query->where('id_mobil', $mobil->id);
+        })->with('transaksi.user')->get();
+
         return view('landing.pages.detail-product', [
             'filtermobil' => $filtermobil,
             'mobil' => $mobil,
+            'ulasan' => $ulasan,
             'tanggal_keluar' => $tanggal_keluar,
             'tanggal_kembali' => $tanggal_kembali
         ]);
