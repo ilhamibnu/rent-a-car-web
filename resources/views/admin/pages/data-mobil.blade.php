@@ -239,14 +239,6 @@
                                         <input class="form-control" type="number" name="harga" id="harga"
                                             required>
                                     </div>
-                                    {{-- <div class="mb-3">
-                                        <label class="col-form-label text-capitalize" for="status">status:</label>
-                                        <select class="form-select" name="status" id="status">
-                                            <option value="" disabled selected>Pilih Status</option>
-                                            <option value="tersedia">Tersedia</option>
-                                            <option value="di sewa">Di Sewa</option>
-                                        </select>
-                                    </div> --}}
                                     <div class="mb-3">
                                         <label class="col-form-label text-capitalize" for="deskripsi">masukkan
                                             deskripsi:</label>
