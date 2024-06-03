@@ -16,7 +16,8 @@ class Mobil extends Model
         'foto',
         'deskripsi',
         'harga',
-        'status'
+        'status',
+        'tipe',
     ];
 
 

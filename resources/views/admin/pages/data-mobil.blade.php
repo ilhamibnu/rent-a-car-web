@@ -51,8 +51,7 @@
                             <table class="display" id="advance-1">
                                 <thead>
                                     <tr>
-                                        <th class="text-capitalize text-center">Jenis Kendaraan</th>
-                                        <th class="text-capitalize text-center">nama mobil</th>
+                                        <th class="text-capitalize text-center">nama</th>
                                         <th class="text-capitalize text-center">foto</th>
                                         <th class="text-capitalize text-center">harga</th>
                                         <th class="text-capitalize text-center">deskripsi</th>
@@ -62,7 +61,6 @@
                                 <tbody>
                                     @foreach ($dataMobils as $item)
                                         <tr>
-                                            <td class="text-center">{{ $item->jenis_kendaraan }}</td>
                                             <td class="text-center">{{ $item->nama }}</td>
                                             <td class="text-center"><img src="{{ asset($item->foto) }}" alt="gambar"
                                                     height="70px"></td>
@@ -100,9 +98,15 @@
                                                                 <label class="col-form-label text-capitalize"
                                                                     for="nama">jenis
                                                                     Kendaraan:</label>
-                                                                <input class="form-control" name="nama" id="nama"
-                                                                    type="text" value="{{ $item->jenis_kendaraan }}"
-                                                                    required readonly>
+                                                                <select class="form-select" name="jenis_kendaraan"
+                                                                    id="jenis_kendaraan">
+                                                                    <option value="motor" class="text-capitalize"
+                                                                        {{ $item->jenis_kendaraan == 'motor' ? 'selected' : '' }}>
+                                                                        motor</option>
+                                                                    <option value="mobil" class="text-capitalize"
+                                                                        {{ $item->jenis_kendaraan == 'mobil' ? 'selected' : '' }}>
+                                                                        mobil</option>
+                                                                </select>
                                                             </div>
                                                             <div class="mb-3">
 
@@ -216,8 +220,10 @@
                                         <label class="col-form-label text-capitalize" for="jenis_kendaraan">Jenis
                                             Kendaraan:</label>
                                         <select class="form-select" name="jenis_kendaraan" id="jenis_kendaraan">
-                                            <option value="motor">Motor</option>
-                                            <option value="mobil">Mobil</option>
+                                            <option value="" class="text-capitalize" selected disabled>pilih jenis
+                                                kendaraan</option>
+                                            <option value="motor" class="text-capitalize">motor</option>
+                                            <option value="mobil" class="text-capitalize">mobil</option>
                                         </select>
                                     </div>
                                     <div class="mb-3">

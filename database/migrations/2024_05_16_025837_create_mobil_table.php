@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('foto');
             $table->longText('deskripsi');
             $table->string('harga');
+            $table->enum('jenis_kendaraan', ['mobil', 'motor']);
             $table->string('status')->default('tersedia');
             $table->timestamps();
         });
