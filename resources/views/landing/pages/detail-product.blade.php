@@ -76,7 +76,10 @@
         <div class="side-bar-column v2 v3 col-lg-5 col-md-12 col-sm-12">
             <div class="inner-column">
                 <div class="contact-box-two">
-                    
+                    <div class="content-box">
+                        <h2>{{ $mobil->nama }}</h2>
+                        
+                    </div>
                     <span>Harga Terbaik</span>
                     <h3 class="title">Rp. {{ number_format($mobil->harga, 0, ',', '.') }}</h3>
                     <small>Per Hari</small>
