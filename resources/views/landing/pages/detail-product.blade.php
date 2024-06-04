@@ -5,8 +5,8 @@
     <div class="boxcar-container">
         <div class="boxcar-title-three">
             <ul class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li><span>Cars for Sale</span></li>
+                <li><a href="/">Beranda</a></li>
+                <li><span>Detail Produk</span></li>
             </ul>
         </div>
         <div class="row">
@@ -18,25 +18,14 @@
                                 <div class="image-box">
                                     <figure class="image"><a href="{{ asset($mobil->foto) }}" data-fancybox="gallery"><img src="{{ asset($mobil->foto) }}" alt=""></a></figure>
                                 </div>
-                                {{-- <div class="image-box">
-                                    <figure class="image"><a href="{{ asset('landing/images/resource/inventory1-8.png') }}" data-fancybox="gallery"><img src="{{ asset('landing/images/resource/inventory1-7.png') }}" alt=""></a></figure>
-
-                            </div> --}}
+                               
                         </div>
-                        <div class="content-box">
-                            <ul class="video-list">
-                                <li><a href="https://www.youtube.com/watch?v=7e90gBu4pas" data-fancybox="gallery2"><img src="{{ asset('landing/images/resource/video1-1.svg') }}">Video</a></li>
-                                <li><a href="#"><img src="{{ asset('landing/images/resource/video1-2.svg') }}">360 View</a>
-                                </li>
-                                <li><a href="{{ asset('landing/images/resource/inventory1-7.png') }}" data-fancybox="gallery"><img src="{{ asset('landing/images/resource/video1-4.svg') }}">All Photos</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                     </div>
                 </div>
                 <!-- description-sec -->
                 <div class="description-sec">
-                    <h4 class="title">Description</h4>
+                    <h4 class="title">Deskripsi Kendaraan</h4>
                     <div class="text two">{{ $mobil->deskripsi }}
                     </div>
                     {{-- <div class="text">Etiam sit amet ex pharetra, venenatis ante vehicula,
@@ -52,322 +41,11 @@
                         <li class="two"><a href="#"><img src="{{ asset('landing/images/resource/book1-2.svg') }}">Car Brochure</a></li>
                     </ul>
                 </div>
-                <!-- features-sec -->
-                <div class="features-sec v2">
-                    <h4 class="title">Features</h4>
-                    <div class="row">
-                        <!-- list-column -->
-                        <div class="list-column col-lg-4 col-md-6 col-sm-12">
-                            <div class="inner-column">
-                                <h6 class="title">Interior</h6>
-                                <ul class="feature-list">
-                                    <li><i class="fa-solid fa-check"></i>Air Conditioner</li>
-                                    <li><i class="fa-solid fa-check"></i>Digital Odometer</li>
-                                    <li><i class="fa-solid fa-check"></i>Leather Seats</li>
-                                    <li><i class="fa-solid fa-check"></i>Heater</li>
-                                    <li><i class="fa-solid fa-check"></i>Tachometer</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- list-column -->
-                        <div class="list-column col-lg-4 col-md-6 col-sm-12">
-                            <div class="inner-column">
-                                <h6 class="title">Exterior</h6>
-                                <ul class="feature-list">
-                                    <li><i class="fa-solid fa-check"></i>Fog Lights Front</li>
-                                    <li><i class="fa-solid fa-check"></i>Rain Sensing Wipe</li>
-                                    <li><i class="fa-solid fa-check"></i>Rear Spoiler</li>
-                                    <li><i class="fa-solid fa-check"></i>Sun Roof</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- list-column -->
-                        <div class="list-column col-lg-4 col-md-6 col-sm-12">
-                            <div class="inner-column">
-                                <h6 class="title">Safety</h6>
-                                <ul class="feature-list">
-                                    <li><i class="fa-solid fa-check"></i>Brake Assist</li>
-                                    <li><i class="fa-solid fa-check"></i>Child Safety Locks</li>
-                                    <li><i class="fa-solid fa-check"></i>Traction Control</li>
-                                    <li><i class="fa-solid fa-check"></i>Power Door Locks</li>
-                                    <li><i class="fa-solid fa-check"></i>Driver Air Bag</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- list-column -->
-                        <div class="list-column col-lg-4 col-md-6 col-sm-12">
-                            <div class="inner-column">
-                                <h6 class="title">Comfort & Convenience</h6>
-                                <ul class="feature-list">
-                                    <li><i class="fa-solid fa-check"></i>Power Steering</li>
-                                    <li><i class="fa-solid fa-check"></i>Vanity Mirror</li>
-                                    <li><i class="fa-solid fa-check"></i>Trunk Light</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- faq-section -->
-                <div class="faqs-section pt-0">
-                    <div class="inner-container">
-                        <!-- FAQ Column -->
-                        <h4 class="title">Specifications</h4>
-                        <div class="faq-column wow fadeInUp" data-wow-delay="400ms">
-                            <div class="inner-column">
-                                <ul class="widget-accordion wow fadeInUp">
-                                    <!--Block-->
-                                    <li class="accordion block active-block">
-                                        <div class="acc-btn active">DEngine and Transmission<div class="icon fa fa-angle-down"></div>
-                                        </div>
-                                        <div class="acc-content current">
-                                            <div class="content">
-                                                <div class="row">
-                                                    <div class="list-column col-lg-6 col-md-6 col-sm-12">
-                                                        <div class="inner-column">
-                                                            <ul class="spects-list">
-                                                                <li><span>Length</span>4950mm</li>
-                                                                <li><span>Height</span>1776mm</li>
-                                                                <li><span>Front Tread</span>1668mm</li>
-                                                                <li><span>Kerb Weight</span>2350</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-column col-lg-6 col-md-6 col-sm-12">
-                                                        <div class="inner-column">
-                                                            <ul class="spects-list">
-                                                                <li><span>Width</span>2140mm</li>
-                                                                <li><span>Wheel Base</span>2984mm</li>
-                                                                <li><span>Rear Tread</span>1671mm</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <!--Block-->
-                                    <li class="accordion block">
-                                        <div class="acc-btn">Dimensions & Capacity<div class="icon fa fa-angle-down"></div>
-                                        </div>
-                                        <div class="acc-content">
-                                            <div class="content">
-                                                <div class="row">
-                                                    <div class="list-column col-lg-6 col-md-6 col-sm-12">
-                                                        <div class="inner-column">
-                                                            <ul class="spects-list">
-                                                                <li><span>Length</span>4950mm</li>
-                                                                <li><span>Height</span>1776mm</li>
-                                                                <li><span>Front Tread</span>1668mm</li>
-                                                                <li><span>Kerb Weight</span>2350</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-column col-lg-6 col-md-6 col-sm-12">
-                                                        <div class="inner-column">
-                                                            <ul class="spects-list">
-                                                                <li><span>Width</span>2140mm</li>
-                                                                <li><span>Wheel Base</span>2984mm</li>
-                                                                <li><span>Rear Tread</span>1671mm</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <!--Block-->
-                                    <li class="accordion block v2">
-                                        <div class="acc-btn">Miscellaneous<div class="icon fa fa-angle-down">
-                                            </div>
-                                        </div>
-                                        <div class="acc-content">
-                                            <div class="content">
-                                                <div class="row">
-                                                    <div class="list-column col-lg-6 col-md-6 col-sm-12">
-                                                        <div class="inner-column">
-                                                            <ul class="spects-list">
-                                                                <li><span>Length</span>4950mm</li>
-                                                                <li><span>Height</span>1776mm</li>
-                                                                <li><span>Front Tread</span>1668mm</li>
-                                                                <li><span>Kerb Weight</span>2350</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="list-column col-lg-6 col-md-6 col-sm-12">
-                                                        <div class="inner-column">
-                                                            <ul class="spects-list">
-                                                                <li><span>Width</span>2140mm</li>
-                                                                <li><span>Wheel Base</span>2984mm</li>
-                                                                <li><span>Rear Tread</span>1671mm</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End faqs-section -->
-                <div class="location-box">
-                    <h4 class="title">Location</h4>
-                    <div class="text">Ford Shirley, 361 - 369 Stratford Road, Shirley, Solihull, B90 3BS
-                        Open today 9am - 6pm
-                    </div>
-                    <a href="#" class="brand-btn">Get Directions<svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewbox="0 0 15 14" fill="none">
-                            <g clip-path="url(#clip0_881_14440)">
-                                <path d="M14.1111 0H5.55558C5.34062 0 5.16668 0.173943 5.16668 0.388901C5.16668 0.603859 5.34062 0.777802 5.55558 0.777802H13.1723L0.613941 13.3362C0.46202 13.4881 0.46202 13.7342 0.613941 13.8861C0.689884 13.962 0.789415 14 0.88891 14C0.988405 14 1.0879 13.962 1.16388 13.8861L13.7222 1.3277V8.94447C13.7222 9.15943 13.8962 9.33337 14.1111 9.33337C14.3261 9.33337 14.5 9.15943 14.5 8.94447V0.388901C14.5 0.173943 14.3261 0 14.1111 0Z" fill="#405FF2"></path>
-                            </g>
-                            <defs>
-                                <clippath id="clip0_881_14440">
-                                    <rect width="14" height="14" fill="white" transform="translate(0.5)"></rect>
-                                </clippath>
-                            </defs>
-                        </svg>
-                    </a>
-                    <div class="goole-iframe">
-                        <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                        </iframe>
-                    </div>
-                </div>
-                <div class="contact-box-three">
-                    <div class="icon-box">
-                        <img src="{{ asset('landing/images/resource/volvo1-2.svg') }}">
-                    </div>
-                    <div class="content-box">
-                        <div class="inner-box">
-                            <h6 class="title">Volvo Cars Marin</h6>
-                            <div class="text">619 Francisco Blvd E, San Rafael, CA 94901</div>
-                            <ul class="contact-list">
-                                <li><a href="#">
-                                        <div class="image-box"><img src="{{ asset('landing/images/resource/phone1-1.svg') }}"></div>
-                                        Get Directions
-                                    </a></li>
-                                <li><a href="#">
-                                        <div class="image-box"><img src="{{ asset('landing/images/resource/phone1-2.svg') }}"></div>
-                                        +76 956 039 967
-                                    </a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-box">
-                            <a href="#" class="side-btn">Message Dealer<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 14 14" fill="none">
-                                    <g clip-path="url(#clip0_881_7563)">
-                                        <path d="M13.6111 0H5.05558C4.84062 0 4.66668 0.173943 4.66668 0.388901C4.66668 0.603859 4.84062 0.777802 5.05558 0.777802H12.6723L0.113941 13.3362C-0.0379805 13.4881 -0.0379805 13.7342 0.113941 13.8861C0.189884 13.962 0.289415 14 0.38891 14C0.488405 14 0.5879 13.962 0.663879 13.8861L13.2222 1.3277V8.94447C13.2222 9.15943 13.3962 9.33337 13.6111 9.33337C13.8261 9.33337 14 9.15943 14 8.94447V0.388901C14 0.173943 13.8261 0 13.6111 0Z" fill="white"></path>
-                                    </g>
-                                    <defs>
-                                        <clippath id="clip0_881_7563">
-                                            <rect width="14" height="14" fill="white"></rect>
-                                        </clippath>
-                                    </defs>
-                                </svg>
-                            </a>
-                            <a href="#" class="side-btn two">Chat Via Whatsapp<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 14 14" fill="none">
-                                    <g clip-path="url(#clip0_881_8744)">
-                                        <path d="M13.6111 0H5.05558C4.84062 0 4.66668 0.173943 4.66668 0.388901C4.66668 0.603859 4.84062 0.777802 5.05558 0.777802H12.6723L0.113941 13.3362C-0.0379805 13.4881 -0.0379805 13.7342 0.113941 13.8861C0.189884 13.962 0.289415 14 0.38891 14C0.488405 14 0.5879 13.962 0.663879 13.8861L13.2222 1.3277V8.94447C13.2222 9.15943 13.3962 9.33337 13.6111 9.33337C13.8261 9.33337 14 9.15943 14 8.94447V0.388901C14 0.173943 13.8261 0 13.6111 0Z" fill="#60C961"></path>
-                                    </g>
-                                    <defs>
-                                        <clippath id="clip0_881_8744">
-                                            <rect width="14" height="14" fill="white"></rect>
-                                        </clippath>
-                                    </defs>
-                                </svg>
-                            </a>
-                            <a href="#" class="side-btn-three">View all stock at this dealer<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 14 14" fill="none">
-                                    <g clip-path="url(#clip0_881_10193)">
-                                        <path d="M13.6111 0H5.05558C4.84062 0 4.66668 0.173943 4.66668 0.388901C4.66668 0.603859 4.84062 0.777802 5.05558 0.777802H12.6723L0.113941 13.3362C-0.0379805 13.4881 -0.0379805 13.7342 0.113941 13.8861C0.189884 13.962 0.289415 14 0.38891 14C0.488405 14 0.5879 13.962 0.663879 13.8861L13.2222 1.3277V8.94447C13.2222 9.15943 13.3962 9.33337 13.6111 9.33337C13.8261 9.33337 14 9.15943 14 8.94447V0.388901C14 0.173943 13.8261 0 13.6111 0Z" fill="#050B20"></path>
-                                    </g>
-                                    <defs>
-                                        <clippath id="clip0_881_10193">
-                                            <rect width="14" height="14" fill="white"></rect>
-                                        </clippath>
-                                    </defs>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-box">
-                    <h4 class="title">Financing Calculator</h4>
-                    <form class="row">
-                        <div class="col-lg-6">
-                            <div class="form_boxes">
-                                <label>Vehicle Price ($)</label>
-                                <div class="drop-menu">
-                                    <div class="select">
-                                        <span>$25.000</span>
-                                    </div>
-                                    <input type="hidden" name="gender">
-                                    <ul class="dropdown" style="display: none;">
-                                        <li>$25.000</li>
-                                        <li>$25.000</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form_boxes">
-                                <label>Interest rate (%)</label>
-                                <div class="drop-menu">
-                                    <div class="select">
-                                        <span>4</span>
-                                    </div>
-                                    <input type="hidden" name="gender">
-                                    <ul class="dropdown" style="display: none;">
-                                        <li>4</li>
-                                        <li>4</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form_boxes">
-                                <label>Period (month)</label>
-                                <div class="drop-menu">
-                                    <div class="select">
-                                        <span>36</span>
-                                    </div>
-                                    <input type="hidden" name="gender">
-                                    <ul class="dropdown" style="display: none;">
-                                        <li>36</li>
-                                        <li>36</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form_boxes">
-                                <label>Down Payment ($)</label>
-                                <div class="drop-menu">
-                                    <div class="select">
-                                        <span>4000</span>
-                                    </div>
-                                    <input type="hidden" name="gender">
-                                    <ul class="dropdown" style="display: none;">
-                                        <li>4000</li>
-                                        <li>4000</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-submit">
-                                <button type="submit" class="theme-btn">Calculate<img src="images/arrow.svg" alt="">
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <ul class="form-list">
-                        <li><span>Monthly Payment</span>$687.70</li>
-                        <li><span>Total Amount to Pay</span>$687.70</li>
-                        <li><span>Total Interest Payment</span>$687.70</li>
-                    </ul>
-                </div>
-                <div style="margin-top: 50px;"></div>
+               
+                
+               
+               
+                
 
                 <div class="testimonial-slider">
                     <div class="carousel" id="testimonial-carousel">
@@ -398,18 +76,10 @@
         <div class="side-bar-column v2 v3 col-lg-5 col-md-12 col-sm-12">
             <div class="inner-column">
                 <div class="contact-box-two">
-                    <div class="content-box">
-                        <h2>{{ $mobil->nama }}</h2>
-                        <div class="text">2.0 D5 PowerPulse Momentum 5dr AWD Geartronic Estate</div>
-                        <ul class="list">
-                            <li>26,786 kms</li>
-                            <li>Petrol</li>
-                            <li>Automatic</li>
-                        </ul>
-                    </div>
-                    <span>Our Price</span>
+                    
+                    <span>Harga Terbaik</span>
                     <h3 class="title">Rp. {{ number_format($mobil->harga, 0, ',', '.') }}</h3>
-                    <small>Per day</small>
+                    <small>Per Hari</small>
                     <div>
                         <form action="/user/detail-product/{{ $mobil->id }}" method="POST">
                             @csrf
@@ -474,7 +144,7 @@
                                 echo $diff->days;
                                 @endphp
                             </li>
-                            <li>Harga Per Day
+                            <li>Harga Per Hari
                                 Rp. {{ number_format($mobil->harga, 0, ',', '.') }}
                             </li>
                         </ul>
@@ -491,7 +161,9 @@
                                     <input type="hidden" name="tanggal_kembali" value="{{ $tanggal_kembali }}">
                                     @if ($filtermobil == '1')
                                     @else
-                                    <button type="submit" class="side-btn">Booking</button>
+                                    <button type="submit" class="side-btn">Pesan Sekarang
+            
+                                    </button>
                                     @endif
                                 </div>
                             </div>
@@ -499,36 +171,7 @@
                     </div>
                 </div>
 
-                <!-- overview-sec -->
-                <div class="overview-box">
-                    <h4 class="title">Car Overview</h4>
-                    <ul class="list">
-                        <li><span><img src="{{ asset('landing/images/resource/insep1-1.svg') }}">Body</span>SUV
-                        </li>
-                        <li><span><img src="{{ asset('landing/images/resource/insep1-2.svg') }}">Mileage</span>28.000
-                            miles</li>
-                        <li><span><img src="{{ asset('landing/images/resource/insep1-3.svg') }}">Fuel
-                                Type</span>Petrol</li>
-                        <li><span><img src="{{ asset('landing/images/resource/insep1-4.svg') }}">Year</span>2023
-                        </li>
-                        <li><span><img src="{{ asset('landing/images/resource/insep1-5.svg') }}">Transmission</span>Automatics
-                        </li>
-                        <li><span><img src="{{ asset('landing/images/resource/insep1-6.svg') }}">Drive
-                                Type</span>Front Wheel Drive</li>
-                        <li><span><img src="{{ asset('landing/images/resource/insep1-7.svg') }}">Condition</span>Used
-                        </li>
-                        <li><span><img src="{{ asset('landing/images/resource/insep1-8.svg') }}">Engine
-                                Size</span>4.8L</li>
-                        <li><span><img src="{{ asset('landing/images/resource/insep1-9.svg') }}">Doors</span>5-door
-                        </li>
-                        <li><span><img src="{{ asset('landing/images/resource/insep1-10.svg') }}">Cylinders</span>6
-                        </li>
-                        <li><span><img src="{{ asset('landing/images/resource/insep1-11.svg') }}">Color</span>Blue
-                        </li>
-                        <li><span><img src="{{ asset('landing/images/resource/insep1-12.svg') }}">VIN</span>ZN682AVA2P7429564
-                        </li>
-                    </ul>
-                </div>
+                
             </div>
         </div>
     </div>

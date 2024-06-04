@@ -8,8 +8,8 @@
             <div class="form-sec">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Sign in</button>
-                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Register</button>
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Masuk</button>
+                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Daftar</button>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -39,7 +39,7 @@
                                     <input type="text" name="email" placeholder="Email" />
                                 </div>
                                 <div class="form_boxes">
-                                    <label>Password</label>
+                                    <label>Kata Sandi</label>
                                     <input type="password" name="password" placeholder="Password" />
                                 </div>
                                 <div class="btn-box">
@@ -47,18 +47,18 @@
                                         <input type="checkbox" checked="checked">
                                         <span class="checkmark"></span>
                                     </label> --}}
-                                    <a href="/user/reset-password" class="pasword-btn">Forgotten password?</a>
+                                    <a href="/user/reset-password" class="pasword-btn">Lupa Kata sandi?</a>
                                 </div>
                                 <div class="form-submit">
-                                    <button type="submit" class="theme-btn">Login <img src="images/arrow.svg" alt="" />
+                                    <button type="submit" class="theme-btn">Masuk <img src="images/arrow.svg" alt="" />
                                     </button>
                                 </div>
                             </form>
                             <div class="btn-box-two">
-                                <span>OR</span>
+                                <span>Atau</span>
                                 <div class="social-btns justify-content-center">
                                     {{-- <a href="#" class="fb-btn"><i class="fa-brands fa-facebook-f"></i>Continue Facebook</a> --}}
-                                    <a href="/user/google/redirect" class="fb-btn two"><i class="fa-brands fa-google"></i>Continue Google</a>
+                                    <a href="/user/google/redirect" class="fb-btn two"><i class="fa-brands fa-google"></i>Masuk dengan Google</a>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                                 @csrf
                                 @method('POST')
                                 <div class="form_boxes">
-                                    <label>Username</label>
+                                    <label>Nama</label>
                                     <input type="text" name="name" placeholder="Name" />
                                 </div>
                                 <div class="form_boxes">
@@ -93,24 +93,24 @@
                                     <input type="email" name="email" placeholder="Email" />
                                 </div>
                                 <div class="form_boxes">
-                                    <label>Password</label>
+                                    <label>Kata Sandi</label>
                                     <input type="password" name="password" placeholder="Password" />
                                 </div>
                                 <div class="form_boxes">
-                                    <label>Re-Password</label>
+                                    <label>Ulangi Kata Sandi</label>
                                     <input type="password" name="repassword" placeholder="Password" />
                                 </div>
                                 <div class="form-submit">
-                                    <button type="submit" class="theme-btn">Login <img src="images/arrow.svg" alt="" />
+                                    <button type="submit" class="theme-btn">Daftar <img src="images/arrow.svg" alt="" />
                                     </button>
                                 </div>
 
                             </form>
                             <div class="btn-box-two">
-                                <span>OR</span>
+                                <span>Atau</span>
                                 <div class="social-btns justify-content-center">
                                     {{-- <a href="/user/redirect" class="fb-btn"><i class="fa-brands fa-facebook-f"></i>Continue Facebook</a> --}}
-                                    <a href="/user/google/redirect" class="fb-btn two"><i class="fa-brands fa-google"></i>Continue Google</a>
+                                    <a href="/user/google/redirect" class="fb-btn two"><i class="fa-brands fa-google"></i>Daftar dengan Google</a>
                                 </div>
                             </div>
                         </div>

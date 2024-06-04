@@ -73,19 +73,19 @@
                 <div class="nav-out-bar">
                     <nav class="nav main-menu">
                         <ul class="navigation" id="navbar">
-                            <li class="current-dropdown current"><a href="/">Home</a></li>
+                            <li class="current-dropdown current"><a href="/">Beranda</a></li>
                             </li>
                             @if (Auth::check () && Auth::user ()->role == 'user')
                             <li class="current-dropdown right-one"><span>{{ Auth::user()->name }} <i class="fa-solid fa-angle-down"></i></span>
                                 <ul class="dropdown">
                                     <li><a href="/user/penyewaan">Penyewaan</a></li>
-                                    <li><a href="/user/cart">Cart</a></li>
+                                    <li><a href="/user/cart">Keranjang</a></li>
                                     <li><a href="/user/profil">Profil</a></li>
-                                    <li><a href="/user/logout">Logout</a></li>
+                                    <li><a href="/user/logout">Keluar</a></li>
                                 </ul>
                             </li>
                             @else
-                            <li><a href="/user/login">Login / Register</a></li>
+                            <li><a href="/user/login">Masuk / Daftar</a></li>
                             @endif
                         </ul>
                     </nav>

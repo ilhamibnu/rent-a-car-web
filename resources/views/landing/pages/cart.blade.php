@@ -5,10 +5,10 @@
         <div class="boxcar-container">
             <div class="boxcar-title-three">
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li><span>Cars for Sale</span></li>
+                    <li><a href="/">Beranda</a></li>
+                    <li><span>Keranjang</span></li>
                 </ul>
-                <h2>Shop Cart</h2>
+                <h2>Keranjang Belanjaan</h2>
             </div>
             <div class="row">
                 <div class="col-lg-9">
@@ -16,11 +16,11 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="text-capitalize">product</th>
-                                    <th class="text-capitalize">price</th>
-                                    <th class="text-capitalize">jumlah Hari</th>
-                                    <th class="text-capitalize">subtotal</th>
-                                    <th class="text-capitalize">action</th>
+                                    <th class="text-capitalize">Nama produk</th>
+                                    <th class="text-capitalize">Harga</th>
+                                    <th class="text-capitalize">Jumlah Hari</th>
+                                    <th class="text-capitalize">Subtotal</th>
+                                    <th class="text-capitalize">Tindakan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -82,7 +82,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="cart-totals">
-                        <h3>Cart Totals</h3>
+                        <h3>Total Pembayaran</h3>
                         <table>
                             <tbody>
                                 <tr>
@@ -96,7 +96,7 @@
                         @else
                             <form action="/user/checkout" method="post">
                                 @csrf
-                                <button class="theme-btn-web">Proceed to Checkout <img src="images/arrow.svg"
+                                <button class="theme-btn-web">Lanjut Pembayaran <img src="images/arrow.svg"
                                         alt=""></button>
                             </form>
                         @endif

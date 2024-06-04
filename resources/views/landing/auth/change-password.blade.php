@@ -36,17 +36,17 @@
                                 @method('POST')
                                 <input hidden name="code" value="{{ $user->code }}" type="text">
                                 <div class="form_boxes">
-                                    <label>Password</label>
+                                    <label>Kata Sandi</label>
                                     <input type="password" name="password" placeholder="Password" />
                                 </div>
 
                                 <div class="form_boxes">
-                                    <label>Password</label>
+                                    <label>Ulangi Kata Sandi</label>
                                     <input type="password" name="repassword" placeholder="Password" />
                                 </div>
 
                                 <div class="form-submit">
-                                    <button type="submit" class="theme-btn">Change Password <img src="images/arrow.svg" alt="" />
+                                    <button type="submit" class="theme-btn">Ubah Kata Sandi<img src="images/arrow.svg" alt="" />
                                     </button>
                                 </div>
                             </form>

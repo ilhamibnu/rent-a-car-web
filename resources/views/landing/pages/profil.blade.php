@@ -34,7 +34,7 @@
                                 @csrf
                                 @method('POST')
                                 <div class="form_boxes">
-                                    <label>Name</label>
+                                    <label>Nama</label>
                                     <input readonly type="text" value="{{ Auth::user()->name }}" name="name" placeholder="Name" />
                                 </div>
                                 <div class="form_boxes">
@@ -46,11 +46,11 @@
 
                                 @else
                                 <div class="form_boxes">
-                                    <label>Password</label>
+                                    <label>Kata Sandi</label>
                                     <input type="password" name="password" placeholder="Password" />
                                 </div>
                                 <div class="form_boxes">
-                                    <label>Password</label>
+                                    <label>Kata Sandi</label>
                                     <input type="password" name="repassword" placeholder="Password" />
                                 </div>
 
@@ -58,7 +58,7 @@
                                 @endif
 
                                 <div class="form-submit">
-                                    <button type="submit" class="theme-btn">Update <img src="images/arrow.svg" alt="" />
+                                    <button type="submit" class="theme-btn">Edit Profil<img src="images/arrow.svg" alt="" />
                                     </button>
                                 </div>
                             </form>

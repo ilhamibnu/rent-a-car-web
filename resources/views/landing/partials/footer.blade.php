@@ -3,17 +3,10 @@
         <div class="boxcar-container">
             <div class="right-box">
                 <div class="top-left wow fadeInUp">
-                    <h6 class="title">Join BoxCar</h6>
-                    <div class="text">Receive pricing updates, shopping tips & more!</div>
+                    <h6 class="title">Gabung dengan RodaRent </h6>
+
                 </div>
-                <div class="subscribe-form wow fadeInUp" data-wow-delay="100ms">
-                    <form method="post" action="#">
-                        <div class="form-group">
-                            <input type="email" name="email" class="email" value="" placeholder="Your e-mail address" required="">
-                            <button type="button" class="theme-btn btn-style-one hover-light"><span class="btn-title">Sign Up</span></button>
-                        </div>
-                    </form>
-                </div>
+               
             </div>
         </div>
     </div>
@@ -23,68 +16,18 @@
                 <!-- Footer COlumn -->
                 <div class="footer-column-two col-lg-9 col-md-12 col-sm-12">
                     <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="footer-widget links-widget wow fadeInUp">
-                                <h4 class="widget-title">Useful Links</h4>
-                                <div class="widget-content">
-                                    <ul class="user-links style-two">
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Careers</a></li>
-                                        <li><a href="#">Blog</a></li>
-                                        <li><a href="#">FAQs</a></li>
-                                        <li><a href="#">Finance</a></li>
-                                        <li><a href="#">Contact Us</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="footer-widget links-widget wow fadeInUp" data-wow-delay="100ms">
-                                <h4 class="widget-title">Quick Links</h4>
+                                <h4 class="widget-title">Location</h4>
                                 <div class="widget-content">
-                                    <ul class="user-links style-two">
-                                        <li><a href="#">Get in Touch</a></li>
-                                        <li><a href="#">Help center</a></li>
-                                        <li><a href="#">Live chat</a></li>
-                                        <li><a href="#">How it works</a></li>
-                                    </ul>
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.424154373449!2d113.72049301073164!3d-8.15994978172116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b617d8f623%3A0xf6c4437632474338!2sState%20Polytechnic%20of%20Jember!5e0!3m2!1sen!2sid!4v1717462495751!5m2!1sen!2sid"
+                                        width="800" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="footer-widget links-widget wow fadeInUp" data-wow-delay="200ms">
-                                <h4 class="widget-title">Our Brands</h4>
-                                <div class="widget-content">
-                                    <ul class="user-links style-two">
-                                        <li><a href="#">Aston Martin</a></li>
-                                        <li><a href="#">Audi</a></li>
-                                        <li><a href="#">Bentley</a></li>
-                                        <li><a href="#">BMW</a></li>
-                                        <li><a href="#">Bugatti</a></li>
-                                        <li><a href="#">Ferrari</a></li>
-                                        <li><a href="#">Jaguar</a></li>
-                                        <li><a href="#">Lamborghini</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="footer-widget links-widget wow fadeInUp" data-wow-delay="300ms">
-                                <h4 class="widget-title">Vehicles Type</h4>
-                                <div class="widget-content">
-                                    <ul class="user-links style-two">
-                                        <li><a href="#">Pickup</a></li>
-                                        <li><a href="#">Coup</a></li>
-                                        <li><a href="#">Family MPV</a></li>
-                                        <li><a href="#">Sedan</a></li>
-                                        <li><a href="#">SUVs</a></li>
-                                        <li><a href="#">Sport Coupe</a></li>
-                                        <li><a href="#">Convertible</a></li>
-                                        <li><a href="#">Wagon</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <!-- footer column -->
@@ -121,9 +64,9 @@
     <div class="footer-bottom">
         <div class="boxcar-container">
             <div class="inner-container">
-                <div class="copyright-text wow fadeInUp">© <a href="#">2024 Boxcars.com. All rights reserved.</a></div>
+                <div class="copyright-text wow fadeInUp">© <a href="#">2024 RodaRent.com. All rights reserved.</a></div>
 
-                <ul class="footer-nav wow fadeInUp" data-wow-delay="200ms">
+                <ul cl="footer-nav wow fadeInUp" data-wow-delay="200ms">
                     <li><a href="#">Terms & Conditions</a></li>
                     <li><a href="#">Privacy Notice</a></li>
                 </ul>
