@@ -106,5 +106,5 @@ Route::middleware(['IsUser'])->group(function () {
     Route::get('user/detail-product/{id}/{tanggal_keluar}/{tanggal_kembali}', [DetailProductController::class, 'detail']);
     Route::post('/user/detail-product/{id}', [DetailProductController::class, 'cekketersediaan']);
     Route::post('/user/booking', [DetailProductController::class, 'booking']);
-    // Route::get('/user/detail-product/{id}', [DetailProductController::class, 'show'])->name('detail-product');
+    Route::get('/user/detail-product/{id}', [DetailProductController::class, 'index'])->name('product.detail');
 });
