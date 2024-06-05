@@ -19,12 +19,17 @@ class DetailProductController extends Controller
             $query->where('id_mobil', $mobil->id);
         })->with('transaksi.user')->get();
 
+        $rekomendasi = Mobil::where('jenis_kendaraan', $mobil->jenis_kendaraan)
+            ->where('id', '!=', $id)
+            ->get();
+
         return view('landing.pages.detail-product', [
             'mobil' => $mobil,
             'ulasan' => $ulasan,
             'tanggal_keluar' => '0',
             'tanggal_kembali' => '0',
             'filtermobil' => '1',
+            'rekomendasi' => $rekomendasi
         ]);
     }
 
@@ -34,12 +39,18 @@ class DetailProductController extends Controller
         $ulasan = Ulasan::whereHas('transaksi.detailTransaksi', function ($query) use ($mobil) {
             $query->where('id_mobil', $mobil->id);
         })->with('transaksi.user')->get();
+
+        $rekomendasi = Mobil::where('jenis_kendaraan', $mobil->jenis_kendaraan)
+            ->where('id', '!=', $id)
+            ->get();
+
         return view('landing.pages.detail-product', [
             'mobil' => $mobil,
             'ulasan' => $ulasan,
             'tanggal_keluar' => $tanggal_keluar,
             'tanggal_kembali' => $tanggal_kembali,
             'filtermobil' => '0',
+            'rekomendasi' => $rekomendasi
         ]);
     }
 
@@ -67,17 +78,21 @@ class DetailProductController extends Controller
             return redirect()->back()->with('mobiltidakada', 'Mobil tidak tersedia pada tanggal tersebut');
         }
 
-        
+
         $ulasan = Ulasan::whereHas('transaksi.detailTransaksi', function ($query) use ($mobil) {
             $query->where('id_mobil', $mobil->id);
         })->with('transaksi.user')->get();
+        $rekomendasi = Mobil::where('jenis_kendaraan', $mobil->jenis_kendaraan)
+            ->where('id', '!=', $mobil->id)
+            ->get();
 
         return view('landing.pages.detail-product', [
             'filtermobil' => $filtermobil,
             'mobil' => $mobil,
             'ulasan' => $ulasan,
             'tanggal_keluar' => $tanggal_keluar,
-            'tanggal_kembali' => $tanggal_kembali
+            'tanggal_kembali' => $tanggal_kembali,
+            'rekomendasi' => $rekomendasi
         ]);
     }
 

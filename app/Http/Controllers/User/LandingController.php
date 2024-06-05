@@ -25,9 +25,7 @@ class LandingController extends Controller
                         });
                 });
             })->where('status', 'tersedia')->get();
-
             $ulasan = Ulasan::with('transaksi')->get();
-
             return view('landing.pages.index', [
                 'mobil' => $mobil,
                 'tanggal_keluar' => $tanggal_keluar,
