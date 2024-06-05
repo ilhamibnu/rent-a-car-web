@@ -5,15 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Transaksi;
 use App\Models\Ulasan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UlasanController extends Controller
 {
-    // public function index()
-    // {
-    //     $ulasan = Ulasan::with('transaksi')->get();
-    //     return view('landing.pages.index', ['ulasan' => $ulasan]);
-    // }
-
     public function index()
     {
         $ulasan = Ulasan::with('transaksi')->get();
@@ -24,17 +20,24 @@ class UlasanController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'id_transaksi' => 'required|exists:detail_transaksi,id',
-            'ulasan' => 'required|string|max:255',
-        ]);
+        try {
+            $validatedData = $request->validate([
+                'id_transaksi' => 'required|exists:detail_transaksi,id',
+                'ulasan' => 'required|string|max:255',
+            ]);
 
-        $ulasan = new Ulasan();
-        $ulasan->id_transaksi = $request->id_transaksi;
-        $ulasan->ulasan = $request->ulasan;
-        $ulasan->save();
+            $ulasan = new Ulasan();
+            $ulasan->id_transaksi = $validatedData['id_transaksi'];
+            $ulasan->ulasan = $validatedData['ulasan'];
+            $ulasan->save();
 
-        return redirect()->back()->with('success', 'Ulasan berhasil disimpan.');
+            session()->flash('success', 'Ulasan berhasil disimpan.');
+        } catch (\Exception $e) {
+            session()->flash('error', 'Gagal menyimpan ulasan.');
+        }
+
+        return redirect()->back();
     }
 
+    
 }

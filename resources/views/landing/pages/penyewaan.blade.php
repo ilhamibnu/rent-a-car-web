@@ -53,8 +53,12 @@
                                 </td>
                                 <td>
                                     <a href="/user/checkout/{{ $data->id }}" class="theme-btn-web">Detail</a>
-                                    <a href="javascript:void(0)" class="theme-btn-web" onclick="showUlasanModal({{ $data->id }}, {{ $data->id }})" data-toggle="modal" data-target="#ulasanModal">Ulasan</a>
+                                    @php
+                                        $ulasanExists = \App\Models\Ulasan::where('id_transaksi', $data->id)->exists();
+                                    @endphp
+                                    <a href="javascript:void(0)" class="theme-btn-web" onclick="showUlasanModal({{ $data->id }}, {{ $data->id }}, {{ $ulasanExists ? 'true' : 'false' }})">Ulasan</a>
                                 </td>
+                                
                             </tr>
                             @endforeach
                         </tbody>
@@ -96,19 +100,52 @@
         </div>
 </section>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 <script>
     function showUlasanModal(id, id_transaksi) {
-        // Set the values for the hidden inputs
         document.getElementById('id_transaksi').value = id_transaksi;
         document.getElementById('id').value = id;
-        
-        // Display the values in the modal
         document.getElementById('id_transaksi_display').innerText = "ID Transaksi: " + id_transaksi;
         document.getElementById('id_display').innerText = "ID: " + id;
     }
 </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const notification = "{{ session('success') ?? session('error') }}";
+
+        if (notification) {
+            Swal.fire({
+                icon: "{{ session('success') ? 'success' : 'error' }}",
+                title: "{{ session('success') ? 'Success' : 'Error' }}",
+                text: notification,
+                showConfirmButton: false,
+                timer: 3000
+            });
+        }
+    });
+</script>
+
+<script>
+function showUlasanModal(id, id_transaksi, ulasanExists) {
+    if (!ulasanExists) {
+        document.getElementById('id_transaksi').value = id_transaksi;
+        document.getElementById('id').value = id;
+        document.getElementById('id_transaksi_display').innerText = "ID Transaksi: " + id_transaksi;
+        document.getElementById('id_display').innerText = "ID: " + id;
+        $('#ulasanModal').modal('show'); // Menampilkan modal
+    } else {
+        Swal.fire({
+            icon: 'info',
+            title: 'Info',
+            text: 'Anda sudah mengulas kendaraan ini.',
+            showConfirmButton: false,
+            timer: 3000 // 3 detik
+        });
+    }
+}
+</script>
 @endsection

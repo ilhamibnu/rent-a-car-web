@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.8",
         "midtrans/midtrans-php": "^2.5",
         "phpmailer/phpmailer": "^6.9",
+        "realrashid/sweet-alert": "^7.1",
         "socialiteproviders/google": "^4.1"
     },
     "require-dev": {

@@ -3,19 +3,10 @@
         <div class="boxcar-container">
             <div class="right-box">
                 <div class="top-left wow fadeInUp">
-                    <h6 class="title">Join BoxCar</h6>
-                    <div class="text">Receive pricing updates, shopping tips & more!</div>
+                    <h6 class="title">Gabung dengan RodaRent </h6>
+
                 </div>
-                <div class="subscribe-form wow fadeInUp" data-wow-delay="100ms">
-                    <form method="post" action="#">
-                        <div class="form-group">
-                            <input type="email" name="email" class="email" value="" placeholder="Your e-mail address"
-                                required="">
-                            <button type="button" class="theme-btn btn-style-one hover-light"><span
-                                    class="btn-title">Sign Up</span></button>
-                        </div>
-                    </form>
-                </div>
+               
             </div>
         </div>
     </div>
