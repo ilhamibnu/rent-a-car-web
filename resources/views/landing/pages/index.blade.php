@@ -50,7 +50,7 @@
 
                                     /* Tambahan untuk placeholder */
                                     .form-control2::placeholder {
-                                        color: #ccc;
+                                        color: #050B20;
                                         opacity: 1;
                                     }
 
@@ -65,7 +65,7 @@
                                         <input type="date" class="form-control2" id="future-date-2" name="tanggal_kembali" placeholder="yyyy-mm-dd" value="{{ optional($tanggal_kembali)->format('Y-m-d') ?? '' }}">
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-submit">
                                     <button type="submit" class="theme-btn"><i class="flaticon-search"></i>Telusuri</button>
                                 </div>

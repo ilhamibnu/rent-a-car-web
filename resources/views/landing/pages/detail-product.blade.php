@@ -92,7 +92,7 @@
 
                                         /* Tambahan untuk placeholder */
                                         .form-control2::placeholder {
-                                            color: #ccc;
+                                            color: #050B20;
                                             opacity: 1;
                                         }
 
@@ -102,13 +102,13 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Tanggal Keluar</label>
-                                            <input type="date" id="future-date-1" name="tanggal_keluar" class="form-control2" required>
+                                            <input type="date" id="future-date-1" placeholder="yyyy-mm-dd" name="tanggal_keluar" class="form-control2" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Tanggal Kembali</label>
-                                            <input type="date" id="future-date-2" name="tanggal_kembali" class="form-control2" required>
+                                            <input type="date" id="future-date-2" placeholder="yyyy-mm-dd" name="tanggal_kembali" class="form-control2" required>
                                         </div>
                                     </div>
                                     <div class="text-center">
