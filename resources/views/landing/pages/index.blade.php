@@ -57,12 +57,12 @@
                                 </style>
                                 <div class="row">
                                     <div class="text-center">
-                                        <input type="date" class="form-control2" id="future-date-1" name="tanggal_keluar" placeholder="yyyy-mm-dd" value="{{ optional($tanggal_keluar)->format('Y-m-d') ?? '' }}">
+                                        <input type="date" class="form-control" id="future-date-1" name="tanggal_keluar" placeholder="yyyy-mm-dd" value="{{ optional($tanggal_keluar)->format('Y-m-d') ?? '' }}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="text-center">
-                                        <input type="date" class="form-control2" id="future-date-2" name="tanggal_kembali" placeholder="yyyy-mm-dd" value="{{ optional($tanggal_kembali)->format('Y-m-d') ?? '' }}">
+                                        <input type="date" class="form-control" id="future-date-2" name="tanggal_kembali" placeholder="yyyy-mm-dd" value="{{ optional($tanggal_kembali)->format('Y-m-d') ?? '' }}">
                                     </div>
                                 </div>
 
