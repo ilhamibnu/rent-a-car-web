@@ -61,147 +61,134 @@
     @yield('script')
 
     @if (Session::get('login'))
-    <script>
-        Swal.fire({
-            icon: "success"
-            , title: "Success"
-            , text: "Login Berhasil"
-        });
-
-    </script>
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Login Berhasil"
+            });
+        </script>
     @endif
 
     @if (Session::get('register'))
-    <script>
-        Swal.fire({
-            icon: "success"
-            , title: "Success"
-            , text: "Register Berhasil"
-        });
-
-    </script>
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Register Berhasil"
+            });
+        </script>
     @endif
 
     @if (Session::get('updateprofil'))
-    <script>
-        Swal.fire({
-            icon: "success"
-            , title: "Success"
-            , text: "Update Profil Berhasil"
-        });
-
-    </script>
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Update Profil Berhasil"
+            });
+        </script>
     @endif
 
     @if (Session::get('logout'))
-    <script>
-        Swal.fire({
-            icon: "success"
-            , title: "Success"
-            , text: "Logout Berhasil"
-        });
-
-    </script>
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Logout Berhasil"
+            });
+        </script>
     @endif
 
     @if (Session::get('gagallogin'))
-    <script>
-        Swal.fire({
-            icon: "error"
-            , title: "Gagal"
-            , text: "Login Gagal"
-        });
-
-    </script>
+        <script>
+            Swal.fire({
+                icon: "error",
+                title: "Gagal",
+                text: "Login Gagal"
+            });
+        </script>
     @endif
 
     @if (Session::get('mobiltidakada'))
-    <script>
-        Swal.fire({
-            icon: "error"
-            , title: "Gagal"
-            , text: "Mobil Tidak Tersedia"
-        });
-
-    </script>
+        <script>
+            Swal.fire({
+                icon: "error",
+                title: "Gagal",
+                text: "Kendaraan Tidak Tersedia Di Tanggal Yang Di Pilih"
+            });
+        </script>
     @endif
 
     @if (Session::get('berhasilbooking'))
-    <script>
-        Swal.fire({
-            icon: "success"
-            , title: "Success"
-            , text: "Booking Berhasil"
-        });
-
-    </script>
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Booking Berhasil"
+            });
+        </script>
     @endif
 
     @if (Session::get('logidulubang'))
-    <script>
-        Swal.fire({
-            icon: "error"
-            , title: "Gagal"
-            , text: "Login Untuk Melakukan Booking"
-        });
-
-    </script>
+        <script>
+            Swal.fire({
+                icon: "error",
+                title: "Gagal",
+                text: "Login Untuk Melakukan Booking"
+            });
+        </script>
     @endif
 
     @if (Session::get('deletecart'))
-    <script>
-        Swal.fire({
-            icon: "success"
-            , title: "Success"
-            , text: "Delete Cart Berhasil"
-        });
-
-    </script>
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Delete Cart Berhasil"
+            });
+        </script>
     @endif
 
 
     @if (Session::get('linkkadaluarsa'))
-    <script>
-        Swal.fire({
-            icon: "error"
-            , title: "Gagal"
-            , text: "Link Kadaluarsa"
-        });
-
-    </script>
+        <script>
+            Swal.fire({
+                icon: "error",
+                title: "Gagal",
+                text: "Link Kadaluarsa"
+            });
+        </script>
     @endif
 
     @if (Session::get('resetpasswordberhasil'))
-    <script>
-        Swal.fire({
-            icon: "success"
-            , title: "Success"
-            , text: "Reset Password Berhasil"
-        });
-
-    </script>
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Reset Password Berhasil"
+            });
+        </script>
     @endif
 
     @if (Session::get('emailtidakditemukan'))
-    <script>
-        Swal.fire({
-            icon: "error"
-            , title: "Gagal"
-            , text: "Email Tidak Ditemukan"
-        });
-
-    </script>
+        <script>
+            Swal.fire({
+                icon: "error",
+                title: "Gagal",
+                text: "Email Tidak Ditemukan"
+            });
+        </script>
     @endif
 
     @if (Session::get('linkresetdikirim'))
-    <script>
-        Swal.fire({
-            icon: "success"
-            , title: "Success"
-            , text: "Link Reset Password Berhasil Dikirim"
-        });
-
-    </script>
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "Link Reset Password Berhasil Dikirim"
+            });
+        </script>
     @endif
 
 
