@@ -169,6 +169,17 @@
     </script>
     @endif
 
+    @if (Session::get('tanggaltidakvalid'))
+    <script>
+        Swal.fire({
+            icon: "error"
+            , title: "Gagal"
+            , text: "Tanggal Tidak Valid"
+        });
+
+    </script>
+    @endif
+
 </body>
 
 <!-- Mirrored from creativelayers.net/themes/boxcar-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 May 2024 05:09:24 GMT -->

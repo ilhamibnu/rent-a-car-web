@@ -12,6 +12,12 @@ class LandingController extends Controller
 {
     public function index(Request $request)
     {
+        if ($request->tanggal_keluar != null && $request->tanggal_kembali != null) {
+            if (Carbon::parse($request->tanggal_keluar)->greaterThanOrEqualTo(Carbon::parse($request->tanggal_kembali))) {
+                return redirect()->back()->with('tanggaltidakvalid', 'Tanggal keluar tidak boleh lebih besar atau sama dengan tanggal kembali');
+            }
+        }
+
         if ($request->tanggal_keluar != null && $request->tanggal_kembali != null && $request->jenis_kendaraan == null) {
             $tanggal_keluar = Carbon::parse($request->tanggal_keluar);
             $tanggal_kembali = Carbon::parse($request->tanggal_kembali);

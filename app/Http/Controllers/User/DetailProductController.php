@@ -56,6 +56,12 @@ class DetailProductController extends Controller
 
     public function cekketersediaan(Request $request)
     {
+        if ($request->tanggal_keluar != null && $request->tanggal_kembali != null) {
+            if (Carbon::parse($request->tanggal_keluar)->greaterThanOrEqualTo(Carbon::parse($request->tanggal_kembali))) {
+                return redirect()->back()->with('tanggaltidakvalid', 'Tanggal keluar tidak boleh lebih besar atau sama dengan tanggal kembali');
+            }
+        }
+
         $id_mobil = $request->id_mobil;
         $tanggal_keluar = Carbon::parse($request->tanggal_keluar);
         $tanggal_kembali = Carbon::parse($request->tanggal_kembali);
@@ -98,6 +104,12 @@ class DetailProductController extends Controller
 
     public function booking(Request $request)
     {
+        if ($request->tanggal_keluar != null && $request->tanggal_kembali != null) {
+            if (Carbon::parse($request->tanggal_keluar)->greaterThanOrEqualTo(Carbon::parse($request->tanggal_kembali))) {
+                return redirect()->back()->with('tanggaltidakvalid', 'Tanggal keluar tidak boleh lebih besar atau sama dengan tanggal kembali');
+            }
+        }
+
         $id_mobil = $request->id_mobil;
         $tanggal_keluar = date('Y-m-d', strtotime($request->tanggal_keluar));
         $tanggal_kembali = date('Y-m-d', strtotime($request->tanggal_kembali));
