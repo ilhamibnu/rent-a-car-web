@@ -62,7 +62,7 @@
     </div>
     <!--  Footer Bottom -->
     <div class="footer-bottom">
-        <div class="boxcar-container">
+        <div class="boxcar-container d-flex flex-column flex-md-row justify-content-center align-items-center text-center">
             <div class="inner-container">
                 <div class="copyright-text wow fadeInUp">© <a href="#">2024 RodaRent.com. All rights reserved.</a></div>
 
