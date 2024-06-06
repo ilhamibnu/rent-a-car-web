@@ -110,3 +110,4 @@ class LandingController extends Controller
             ->get();
     }
 }
+ 
