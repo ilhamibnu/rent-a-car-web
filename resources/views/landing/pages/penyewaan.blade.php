@@ -46,106 +46,68 @@
                                     @endphp
                                     <ul>
                                         @foreach ($mobil as $item)
-                                        <li>{{ $nomer++ }}. {{ $item->mobil->nama }} - Status : {{ $item->status_peminjaman }}</li>
+                                        <li>{{ $nomer++ }}. {{ $item->mobil->nama }}</li>
                                         <li>Tanggal Keluar: {{ $item->tanggal_keluar }} <br> Tanggal Kembali: {{ $item->tanggal_kembali }}</li>
+                                        @if($data->status_pembayaran == 'paid')
+                                        <li><a href="#" class="theme-btn-web" data-bs-toggle="modal" data-bs-target="#ulasan{{ $item->id }}" data-bs-whatever="@mdo">Kasih Ulasan</a></li>
+
+                                        @else
+                                        @endif
+
+                                        <div class="modal fade" id="ulasan{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Ulasan</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <form action="/user/ulasan" method="POST">
+                                                        @csrf
+                                                        @method('POST')
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="id" value="{{ $item->id }}">
+
+                                                            @php
+                                                            $cek_ulasan = \App\Models\Ulasan::where('id_detail_transaksi', $item->id)->first();
+                                                            @endphp
+
+                                                            @if($cek_ulasan)
+
+                                                            <div class="mb-3">
+                                                                <label for="message-text" class="col-form-label">Ulasan</label>
+                                                                <textarea name="ulasan" class="form-control" id="message-text">{{ $cek_ulasan->ulasan }}</textarea>
+                                                            </div>
+
+                                                            @else
+
+                                                            <div class="mb-3">
+                                                                <label for="message-text" class="col-form-label">Ulasan</label>
+                                                                <textarea name="ulasan" class="form-control" id="message-text"></textarea>
+                                                            </div>
+
+                                                            @endif
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                         @endforeach
                                     </ul>
                                 </td>
                                 <td>
                                     <a href="/user/checkout/{{ $data->id }}" class="theme-btn-web">Detail</a>
-                                    @php
-                                        $ulasanExists = \App\Models\Ulasan::where('id_transaksi', $data->id)->exists();
-                                    @endphp
-                                    <a href="javascript:void(0)" class="theme-btn-web" onclick="showUlasanModal({{ $data->id }}, {{ $data->id }}, {{ $ulasanExists ? 'true' : 'false' }})">Ulasan</a>
                                 </td>
-                                
+
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-
-                    <!-- Modal for Ulasan -->
-                    <div class="modal fade" id="ulasanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Berikan Ulasan</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <form id="ulasanForm" action="{{ route('ulasan.store') }}" method="POST">
-                                    @csrf
-                                    <div class="modal-body">
-                                        <p id="id_transaksi_display"></p>
-                                        <p id="id_display"></p>
-                                        <input type="hidden" name="id_transaksi" id="id_transaksi">
-                                        <input type="hidden" name="id" id="id">
-                                        <div class="mb-3">
-                                            <label for="ulasan">Ulasan</label>
-                                            <textarea class="form-control" id="ulasan" name="ulasan" rows="3" required></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
         </div>
 </section>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-<script>
-    function showUlasanModal(id, id_transaksi) {
-        document.getElementById('id_transaksi').value = id_transaksi;
-        document.getElementById('id').value = id;
-        document.getElementById('id_transaksi_display').innerText = "ID Transaksi: " + id_transaksi;
-        document.getElementById('id_display').innerText = "ID: " + id;
-    }
-</script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const notification = "{{ session('success') ?? session('error') }}";
-
-        if (notification) {
-            Swal.fire({
-                icon: "{{ session('success') ? 'success' : 'error' }}",
-                title: "{{ session('success') ? 'Success' : 'Error' }}",
-                text: notification,
-                showConfirmButton: false,
-                timer: 3000
-            });
-        }
-    });
-</script>
-
-<script>
-function showUlasanModal(id, id_transaksi, ulasanExists) {
-    if (!ulasanExists) {
-        document.getElementById('id_transaksi').value = id_transaksi;
-        document.getElementById('id').value = id;
-        document.getElementById('id_transaksi_display').innerText = "ID Transaksi: " + id_transaksi;
-        document.getElementById('id_display').innerText = "ID: " + id;
-        $('#ulasanModal').modal('show'); // Menampilkan modal
-    } else {
-        Swal.fire({
-            icon: 'info',
-            title: 'Info',
-            text: 'Anda sudah mengulas kendaraan ini.',
-            showConfirmButton: false,
-            timer: 3000 // 3 detik
-        });
-    }
-}
-</script>
 @endsection

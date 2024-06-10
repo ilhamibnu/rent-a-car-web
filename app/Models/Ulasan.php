@@ -16,8 +16,8 @@ class Ulasan extends Model
         'id_transaksi',
     ];
 
-    public function transaksi()
+    public function detailTransaksi()
     {
-        return $this->belongsTo(Transaksi::class, 'id_transaksi', 'id');
+        return $this->belongsTo(DetailTransaksi::class, 'id_detail_transaksi', 'id');
     }
 }

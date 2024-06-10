@@ -12,7 +12,8 @@ class UlasanController extends Controller
 {
     public function index()
     {
-        $ulasan = Ulasan::with('transaksi')->get();
+        $ulasan = Ulasan::with('detailTransaksi')->get();
+
         return view('admin.pages.data-ulasan', [
             'ulasan' => $ulasan
         ]);
@@ -38,6 +39,4 @@ class UlasanController extends Controller
 
         return redirect()->back();
     }
-
-    
 }

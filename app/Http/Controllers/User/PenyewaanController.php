@@ -20,17 +20,18 @@ class PenyewaanController extends Controller
 
     public function storeUlasan(Request $request)
     {
-        $request->validate([
-            'ulasan' => 'required|string',
-            'id_transaksi' => 'required|integer|exists:detail_transaksi,id'
-        ]);
+        $cek_ulasan = Ulasan::where('id_detail_transaksi', $request->id)->first();
+        if ($cek_ulasan) {
+            $ulasan = Ulasan::find($cek_ulasan->id);
+            $ulasan->ulasan = $request->ulasan;
+            $ulasan->save();
+        }
 
         $ulasan = new Ulasan();
+        $ulasan->id_detail_transaksi = $request->id;
         $ulasan->ulasan = $request->ulasan;
-        $ulasan->id_transaksi = $request->id_transaksi;
         $ulasan->save();
 
-        return redirect()->back()->with('success', 'Ulasan berhasil disimpan.');
+        return redirect()->back()->with('ulasan', 'Ulasan berhasil disimpan.');
     }
-    
 }

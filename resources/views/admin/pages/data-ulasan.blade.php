@@ -8,14 +8,14 @@
                 <h3>Data Ulasan</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
-                  
+
                     <li class="breadcrumb-item active">Ulasan</li>
                 </ol>
             </div>
             <div class="col-lg-6">
                 <!-- Bookmark Start-->
                 <div class="bookmark">
-                    
+
                 </div>
                 <!-- Bookmark Ends-->
             </div>
@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
-                
+
                 {{-- btn add --}}
                 {{-- <div class="card-header pb-0">
                     <a href="" data-bs-toggle="modal" data-bs-target="#Add" class="btn btn-primary">Tambah Data</a>
@@ -38,6 +38,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Name</th>
+                                    <th>Kendaraan</th>
                                     <th>Ulasan</th>
                                     {{-- <th>Action</th> --}}
                                 </tr>
@@ -48,7 +49,8 @@
 
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $data->transaksi->user->name }}</td>
+                                    <td>{{ $data->detailTransaksi->transaksi->user->name }}</td>
+                                    <td>{{ $data->detailTransaksi->mobil->nama }}</td>
                                     <td>{{ $data->ulasan }}</td>
                                     {{-- <td>
                                         <div class="d-flex justify-content-center">

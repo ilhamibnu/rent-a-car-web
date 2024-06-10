@@ -55,6 +55,10 @@
     <script src="{{ asset('landing/js/knob.js') }}"></script>
     <script src="{{ asset('landing/js/mmenu.js') }}"></script>
     <script src="{{ asset('landing/js/main.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -212,6 +216,20 @@
             icon: "error"
             , title: "Gagal"
             , text: "Tanggal Tidak Valid"
+        });
+
+    </script>
+    @endif
+
+
+
+
+    @if (Session::get('ulasan'))
+    <script>
+        Swal.fire({
+            icon: "success"
+            , title: "Success"
+            , text: "Ulasan Berhasil"
         });
 
     </script>

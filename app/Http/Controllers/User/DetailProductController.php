@@ -15,10 +15,9 @@ class DetailProductController extends Controller
     public function index($id)
     {
         $mobil = Mobil::find($id);
-        $ulasan = Ulasan::whereHas('transaksi.detailTransaksi', function ($query) use ($mobil) {
+        $ulasan = Ulasan::with('detailTransaksi')->whereHas('detailTransaksi', function ($query) use ($mobil) {
             $query->where('id_mobil', $mobil->id);
-        })->with('transaksi.user')->get();
-
+        })->get();
         $rekomendasi = Mobil::where('jenis_kendaraan', $mobil->jenis_kendaraan)
             ->where('id', '!=', $id)
             ->get();
@@ -36,9 +35,9 @@ class DetailProductController extends Controller
     public function detail($id, $tanggal_keluar, $tanggal_kembali)
     {
         $mobil = Mobil::find($id);
-        $ulasan = Ulasan::whereHas('transaksi.detailTransaksi', function ($query) use ($mobil) {
+        $ulasan = Ulasan::with('detailTransaksi')->whereHas('detailTransaksi', function ($query) use ($mobil) {
             $query->where('id_mobil', $mobil->id);
-        })->with('transaksi.user')->get();
+        })->get();
 
         $rekomendasi = Mobil::where('jenis_kendaraan', $mobil->jenis_kendaraan)
             ->where('id', '!=', $id)
@@ -85,9 +84,9 @@ class DetailProductController extends Controller
         }
 
 
-        $ulasan = Ulasan::whereHas('transaksi.detailTransaksi', function ($query) use ($mobil) {
+        $ulasan = Ulasan::with('detailTransaksi')->whereHas('detailTransaksi', function ($query) use ($mobil) {
             $query->where('id_mobil', $mobil->id);
-        })->with('transaksi.user')->get();
+        })->get();
         $rekomendasi = Mobil::where('jenis_kendaraan', $mobil->jenis_kendaraan)
             ->where('id', '!=', $mobil->id)
             ->get();

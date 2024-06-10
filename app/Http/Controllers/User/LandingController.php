@@ -32,14 +32,14 @@ class LandingController extends Controller
                 });
             })->where('status', 'tersedia')->get();
 
-            $ulasan = Ulasan::with('transaksi')->get();
+            // $ulasan = Ulasan::with('transaksi')->get();
             $popularKendaraan = $this->popularKendaraan();
 
             return view('landing.pages.index', [
                 'mobil' => $mobil,
                 'tanggal_keluar' => $tanggal_keluar,
                 'tanggal_kembali' => $tanggal_kembali,
-                'ulasan' => $ulasan,
+                // 'ulasan' => $ulasan,
                 'popularKendaraan' => $popularKendaraan
             ]);
         } elseif ($request->tanggal_keluar != null && $request->tanggal_kembali != null && $request->jenis_kendaraan != null) {
@@ -62,14 +62,14 @@ class LandingController extends Controller
                 ->where('status', 'tersedia')
                 ->get();
 
-            $ulasan = Ulasan::with('transaksi')->get();
+            // $ulasan = Ulasan::with('transaksi')->get();
             $popularKendaraan = $this->popularKendaraan();
 
             return view('landing.pages.index', [
                 'mobil' => $mobil,
                 'tanggal_keluar' => $tanggal_keluar,
                 'tanggal_kembali' => $tanggal_kembali,
-                'ulasan' => $ulasan,
+                // 'ulasan' => $ulasan,
                 'popularKendaraan' => $popularKendaraan
             ]);
         } elseif ($request->jenis_kendaraan != null) {
@@ -77,26 +77,26 @@ class LandingController extends Controller
                 ->where('status', 'tersedia')
                 ->get();
 
-            $ulasan = Ulasan::with('transaksi')->get();
+            // $ulasan = Ulasan::with('transaksi')->get();
 
             return view('landing.pages.index', [
                 'mobil' => $mobil,
                 'tanggal_keluar' => '0',
                 'tanggal_kembali' => '0',
-                'ulasan' => $ulasan,
+                // 'ulasan' => $ulasan,
                 'popularKendaraan' => $this->popularKendaraan()
             ]);
         } else {
             $mobil = Mobil::all();
 
-            $ulasan = Ulasan::with('transaksi')->get();
+            // $ulasan = Ulasan::with('transaksi')->get();
             $popularKendaraan = $this->popularKendaraan();
 
             return view('landing.pages.index', [
                 'mobil' => $mobil,
                 'tanggal_keluar' => '0',
                 'tanggal_kembali' => '0',
-                'ulasan' => $ulasan,
+                // 'ulasan' => $ulasan,
                 'popularKendaraan' => $popularKendaraan
             ]);
         }
@@ -110,4 +110,3 @@ class LandingController extends Controller
             ->get();
     }
 }
- 

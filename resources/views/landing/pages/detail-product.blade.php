@@ -45,8 +45,8 @@
                                     <div class="toggle-reviews">
                                         @foreach ($ulasan as $index => $detail)
                                             <div class="review{{ $index >= 3 ? ' hidden' : '' }}">
-                                                <h4>{{ $detail->transaksi->user->name }}</h4>
-                                                <p>Email: {{ $detail->transaksi->user->email }}</p>
+                                                <h4>{{ $detail->detailTransaksi->transaksi->user->name }}</h4>
+                                                <p>Email: {{ $detail->detailTransaksi->transaksi->user->email }}</p>
                                                 <p>{{ $detail->ulasan }}</p>
                                             </div>
                                         @endforeach
