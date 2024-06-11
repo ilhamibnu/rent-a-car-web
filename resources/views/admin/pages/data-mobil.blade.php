@@ -37,9 +37,9 @@
 
 
                                 <?php
-                                
+
                                 $nomer = 1;
-                                
+
                                 ?>
 
                                 @foreach ($errors->all() as $error)
@@ -48,7 +48,7 @@
                             </div>
                         @endif
                         <div class="table-responsive">
-                            <table class="display" id="advance-1">
+                            <table class="display" id="test">
                                 <thead>
                                     <tr>
                                         <th class="text-capitalize text-center">nama</th>
@@ -294,4 +294,80 @@
         }
     </script>
 
+@endsection
+
+@section('script')
+<script>
+    $('#test').DataTable({
+        autoWidth: true,
+        // "lengthMenu": [
+        //     [16, 32, 64, -1],
+        //     [16, 32, 64, "All"]
+        // ]
+        dom: 'Bfrtip',
+
+
+        lengthMenu: [
+            [10, 25, 50, -1]
+            , ['10 rows', '25 rows', '50 rows', 'Show all']
+        ],
+
+        buttons: [{
+                extend: 'colvis'
+                , className: 'btn btn-primary shadow btn-xs sharp mr-1'
+                , text: 'Column Visibility',
+                // columns: ':gt(0)'
+
+
+            },
+
+            {
+
+                extend: 'pageLength'
+                , className: 'btn btn-primary shadow btn-xs sharp mr-1'
+                , text: 'Page Length',
+                // columns: ':gt(0)'
+            },
+
+
+            // 'colvis', 'pageLength',
+
+            {
+                extend: 'excel'
+                , className: 'btn btn-primary shadow btn-xs sharp mr-1'
+                , exportOptions: {
+                    columns: [0, ':visible']
+                }
+            },
+
+            // {
+            //     extend: 'csv',
+            //     className: 'btn btn-primary btn-sm',
+            //     exportOptions: {
+            //         columns: [0, ':visible']
+            //     }
+            // },
+            {
+                extend: 'pdf'
+                , className: 'btn btn-primary shadow btn-xs sharp mr-1'
+                , exportOptions: {
+                    columns: [0, ':visible']
+                }
+            },
+
+            {
+                extend: 'print'
+                , className: 'btn btn-primary shadow btn-xs sharp mr-1'
+                , exportOptions: {
+                    columns: [0, ':visible']
+                }
+            },
+
+            // 'pageLength', 'colvis',
+            // 'copy', 'csv', 'excel', 'print'
+
+        ]
+    , });
+
+</script>
 @endsection
