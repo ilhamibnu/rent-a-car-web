@@ -4,7 +4,7 @@
             <!-- Main box -->
             <div class="c-box">
                 <div class="logo-inner">
-                    <div class="logo"><a href="/"><img src="{{ asset('landing/images/logo.svg') }}" alt="" title="Boxcar"></a></div>
+                    <div class="logo"><a href="/"><img src="{{ asset('landing/images/rodarent.png') }}" alt="" title="Boxcar"></a></div>
                 </div>
 
                 <!--Nav Box-->

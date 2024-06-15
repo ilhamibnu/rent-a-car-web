@@ -28,12 +28,12 @@
                             <h4 class="title">Deskripsi Kendaraan</h4>
                             <div class="text two">{{ $mobil->deskripsi }}
                             </div>
-                            <ul class="des-list">
+                            {{-- <ul class="des-list">
                                 <li><a href="#"><img src="{{ asset('landing/images/resource/book1-1.svg') }}">View Vin
                                         Report</a></li>
                                 <li class="two"><a href="#"><img
                                             src="{{ asset('landing/images/resource/book1-2.svg') }}">Car Brochure</a></li>
-                            </ul>
+                            </ul> --}}
                         </div>
                         <div class="testimonial-slider">
                             <div class="carousel" id="testimonial-carousel">
@@ -193,7 +193,7 @@
                                     <figure class="image"><a href="#"><img src="{{ asset($item->foto) }}"
                                                 alt=""></a>
                                     </figure>
-                                    <span>Low Mileage</span>
+                                    {{-- <span>Low Mileage</span>
                                     <a href="#" title="" class="icon-box">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                                             viewbox="0 0 12 12" fill="none">
@@ -208,7 +208,7 @@
                                                 </clippath>
                                             </defs>
                                         </svg>
-                                    </a>
+                                    </a> --}}
                                 </div>
                                 <div class="content-box">
                                     <h6 class="title">{{ $item->nama }}</h6>

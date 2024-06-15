@@ -129,7 +129,7 @@
     <script src="{{ asset('admin/assets/js/vector-map/map/jquery-jvectormap-in-mill.js') }}"></script>
     <script src="{{ asset('admin/assets/js/vector-map/map/jquery-jvectormap-asia-mill.j') }}s"></script>
     <script src="{{ asset('admin/assets/js/dashboard/default.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/notify/index.js') }}"></script>
+    {{-- <script src="{{ asset('admin/assets/js/notify/index.js') }}"></script> --}}
     <script src="{{ asset('admin/assets/js/datepicker/date-picker/datepicker.js') }}"></script>
     <script src="{{ asset('admin/assets/js/datepicker/date-picker/datepicker.en.js') }}"></script>
     <script src="{{ asset('admin/assets/js/datepicker/date-picker/datepicker.custom.js') }}"></script>

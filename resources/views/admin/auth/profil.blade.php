@@ -15,7 +15,7 @@
             <div class="col-lg-12 justify-content-center">
                 <!-- Bookmark Start-->
                 <div class="bookmark">
-                    
+
                 </div>
                 <!-- Bookmark Ends-->
             </div>
@@ -56,7 +56,7 @@
                             <div class="row mb-2">
                                 <div class="profile-title">
                                     <div class="media">
-                                        <img class="img-70 rounded-circle" alt="" src="{{ asset('admin/assets/images/user/7.jpg') }}" />
+                                        {{-- <img class="img-70 rounded-circle" alt="" src="{{ asset('admin/assets/images/user/7.jpg') }}" /> --}}
                                         <div class="media-body">
                                             <h3 class="mb-1 f-20 txt-primary">{{ Auth::user()->name }}</h3>
                                             <p class="f-12">{{ Auth::user()->role }}</p>
@@ -82,7 +82,7 @@
                                 <input class="form-control" name="repassword" type="password" value="password" />
                             </div>
 
-                        
+
 
                             <div class="form-footer">
                                 <button type="submit" class="btn btn-primary btn-block">Save</button>
