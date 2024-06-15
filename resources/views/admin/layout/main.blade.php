@@ -113,6 +113,7 @@
     <script src="{{ asset('admin/assets/js/chart/knob/knob-chart.js') }}"></script>
     <script src="{{ asset('admin/assets/js/chart/apex-chart/apex-chart.js') }}"></script>
     <script src="{{ asset('admin/assets/js/chart/apex-chart/stock-prices.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/chart/apex-chart/chart-custom.js') }}"></script>
     <script src="{{ asset('admin/assets/js/prism/prism.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/clipboard/clipboard.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/counter/jquery.waypoints.min.js') }}"></script>

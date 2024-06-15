@@ -123,11 +123,11 @@
                                                 <li>Tanggal Keluar : {{ $detail->tanggal_keluar }}</li>
                                                 <li>Tanggal Kembali : {{ $detail->tanggal_kembali }}</li>
                                                 <li>Status Peminjaman : {{ $detail->status_peminjaman }}</li>
-                                                <li>
+                                                {{-- <li>
                                                     <div class="d-flex justify-content-center m-2">
                                                         <a href="" data-bs-toggle="modal" data-bs-target="#ubahstatus{{ $data->id }}" class="btn btn-sm btn-info">Ubah Status</a>
                                                     </div>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                         </li>
 
