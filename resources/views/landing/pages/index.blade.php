@@ -557,7 +557,7 @@
 <!-- End boxcar-testimonial-section -->
 
 <!-- blog-section-two -->
-<section class="blog-section-two pt-0 section-radius-bottom bg-white">
+{{-- <section class="blog-section-two pt-0 section-radius-bottom bg-white">
     <div class="boxcar-container">
         <div class="row">
             <!-- blog-blockt-two -->
@@ -618,7 +618,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- blog-section-two -->
 @endsection
 
