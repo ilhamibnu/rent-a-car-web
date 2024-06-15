@@ -4,15 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MobilController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\LandingController;
+use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\PenyewaanController;
 use App\Http\Controllers\User\DetailProductController;
 use App\Http\Controllers\User\AuthController as UserAuthController;
-use App\Http\Controllers\User\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,10 @@ Route::middleware(['IsAdmin'])->group(function () {
 
     # Ulasan
     Route::get('/data-ulasan', [UlasanController::class, 'index']);
+
+    # Report
+    Route::get('/data-report', [ReportController::class, 'index']);
+    Route::post('/report/filter', [ReportController::class, 'filter']);
 });
 
 
