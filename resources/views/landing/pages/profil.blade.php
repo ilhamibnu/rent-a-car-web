@@ -33,6 +33,9 @@
                             <form action="/user/update-profil" method="POST">
                                 @csrf
                                 @method('POST')
+
+
+                                @if(Auth::user()->google == '1')
                                 <div class="form_boxes">
                                     <label>Nama</label>
                                     <input readonly type="text" value="{{ Auth::user()->name }}" name="name" placeholder="Name" />
@@ -42,9 +45,19 @@
                                     <input readonly type="text" value="{{ Auth::user()->email }}" name="email" placeholder="Email" />
                                 </div>
 
-                                @if(Auth::user()->google == '1')
+
 
                                 @else
+
+                                <div class="form_boxes">
+                                    <label>Nama</label>
+                                    <input type="text" value="{{ Auth::user()->name }}" name="name" placeholder="Name" />
+                                </div>
+                                <div class="form_boxes">
+                                    <label>Email</label>
+                                    <input type="text" value="{{ Auth::user()->email }}" name="email" placeholder="Email" />
+                                </div>
+
                                 <div class="form_boxes">
                                     <label>Kata Sandi</label>
                                     <input type="password" name="password" placeholder="Password" />

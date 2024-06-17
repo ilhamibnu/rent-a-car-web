@@ -9,7 +9,7 @@ class ReportController extends Controller
 {
     public function index()
     {
-        $transaksi = Transaksi::with('user', 'detailTransaksi')->get()->sortByDesc('id');
+        $transaksi = Transaksi::with('user', 'detailTransaksi')->orderBy('id', 'DESC')->get();
         return view('admin.pages.data-report', [
             'transaksi' => $transaksi
         ]);
@@ -39,7 +39,7 @@ class ReportController extends Controller
         }
 
         // Execute the query and get the results
-        $transaksi = $query->get();
+        $transaksi = $query->orderBy('id', 'DESC')->get();
 
         return view('admin.pages.data-report', [
             'transaksi' => $transaksi

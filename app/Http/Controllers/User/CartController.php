@@ -17,6 +17,7 @@ class CartController extends Controller
             ->join('mobil', 'cart.id_mobil', '=', 'mobil.id')
             ->select('cart.*', 'mobil.nama', 'mobil.harga', 'mobil.foto')
             ->where('cart.id_user', auth()->user()->id)
+            ->orderBy('cart.id', 'DESC')
             ->get();
 
         $sum_cart = DB::table('cart')

@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = User::where('role', 'user')->get();
+        $user = User::where('role', 'user')->orderby('id', 'DESC')->get();
         return view('admin.pages.data-user', [
             'user' => $user
         ]);
