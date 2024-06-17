@@ -33,7 +33,7 @@
                                     <p>{{ $data->status_pembayaran }}</p>
                                     @elseif($data->status_pembayaran == 'pending')
                                     <p>{{ $data->status_pembayaran }}</p>
-                                    @elseif($data->status_pembayaran == 'expired')
+                                    @elseif($data->status_pembayaran == 'expire')
                                     <p>{{ $data->status_pembayaran }}</p>
                                     @elseif($data->status_pembayaran == 'paid')
                                     <p>{{ $data->status_pembayaran }}</p>
@@ -49,7 +49,7 @@
                                         <li>{{ $nomer++ }}. {{ $item->mobil->nama }}</li>
                                         <li>Tanggal Keluar: {{ $item->tanggal_keluar }} <br> Tanggal Kembali: {{ $item->tanggal_kembali }}</li>
                                         @if($data->status_pembayaran == 'paid')
-                                        <li><a href="#" class="theme-btn-web" data-bs-toggle="modal" data-bs-target="#ulasan{{ $item->id }}" data-bs-whatever="@mdo">Kasih Ulasan</a></li>
+                                        <li><a href="#" class="theme-btn-web" data-bs-toggle="modal" data-bs-target="#ulasan{{ $item->id }}" data-bs-whatever="@mdo">Beri Ulasan</a></li>
 
                                         @else
                                         @endif
@@ -74,14 +74,14 @@
                                                             @if($cek_ulasan)
 
                                                             <div class="mb-3">
-                                                                <label for="message-text" class="col-form-label">Ulasan</label>
+                                                                {{-- <label for="message-text" class="col-form-label">Ulasan</label> --}}
                                                                 <textarea name="ulasan" class="form-control" id="message-text">{{ $cek_ulasan->ulasan }}</textarea>
                                                             </div>
 
                                                             @else
 
                                                             <div class="mb-3">
-                                                                <label for="message-text" class="col-form-label">Ulasan</label>
+                                                                {{-- <label for="message-text" class="col-form-label">Ulasan</label> --}}
                                                                 <textarea name="ulasan" class="form-control" id="message-text"></textarea>
                                                             </div>
 
