@@ -65,7 +65,7 @@
                                         @elseif($data->status_pembayaran == 'pending')
                                         <span class="badge badge-warning">{{ $data->status_pembayaran }}</span>
 
-                                        @elseif($data->status_pembayaran == 'expired')
+                                        @elseif($data->status_pembayaran == 'expire')
                                         <span class="badge badge-danger">{{ $data->status_pembayaran }}</span>
 
                                         @elseif($data->status_pembayaran == 'paid')
