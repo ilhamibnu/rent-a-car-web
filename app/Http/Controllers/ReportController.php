@@ -39,7 +39,7 @@ class ReportController extends Controller
         }
 
         // Execute the query and get the results
-        $transaksi = $query->orderBy('id', 'DESC')->get();
+        $transaksi = $query->orderBydesc('id')->get();
 
         return view('admin.pages.data-report', [
             'transaksi' => $transaksi

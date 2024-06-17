@@ -12,7 +12,7 @@ class UlasanController extends Controller
 {
     public function index()
     {
-        $ulasan = Ulasan::with('detailTransaksi')->orderBy('id', 'DESC')->get();
+        $ulasan = Ulasan::with('detailTransaksi')->orderBydesc('id')->get();
 
         return view('admin.pages.data-ulasan', [
             'ulasan' => $ulasan

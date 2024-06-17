@@ -11,7 +11,7 @@ class PenyewaanController extends Controller
 {
     public function index()
     {
-        $transaksi = auth()->user()->transaksi->orderBy('id', 'DESC')->get();
+        $transaksi = auth()->user()->transaksi->orderBydesc('id')->get();
 
         return view('landing.pages.penyewaan', [
             'transaksi' => $transaksi
