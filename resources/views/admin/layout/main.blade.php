@@ -261,6 +261,16 @@
 
     </script>
     @endif
+    @if (Session::get('punyadata'))
+    <script>
+        Swal.fire({
+            icon: "error"
+            , title: "Error"
+            , text: "Data ini memiliki relasi dengan data lain"
+        });
+
+    </script>
+    @endif
 </body>
 
 

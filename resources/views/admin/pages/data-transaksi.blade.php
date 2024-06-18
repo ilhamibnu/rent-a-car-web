@@ -49,6 +49,7 @@
                                     <th>No</th>
                                     <th>Name</th>
                                     <th>Status Pembayaran</th>
+                                    <th>Total Harga</th>
                                     <th>Date</th>
                                     <th>Detail Mobil</th>
                                     <th>Action</th>
@@ -73,6 +74,7 @@
 
                                         @endif
                                     </td>
+                                    <td>Rp. {{ number_format($data->total_harga) }}</td>
                                     <td>{{ date('d-m-Y', strtotime($data->created_at)) }}</td>
                                     <td>
                                         @php

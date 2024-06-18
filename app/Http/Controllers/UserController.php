@@ -87,7 +87,7 @@ class UserController extends Controller
     {
         $transaksi = User::find($id);
         if ($transaksi->transaksi->count() > 0) {
-            return redirect()->back()->with('destroy', 'Data user tidak bisa dihapus karena memiliki transaksi');
+            return redirect()->back()->with('punyadata', 'Data user tidak bisa dihapus karena memiliki transaksi');
         } else {
             $user = User::find($id);
             $user->delete();

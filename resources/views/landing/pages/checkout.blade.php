@@ -61,7 +61,7 @@
                                         <small>Payment Gateway</small>
                                     </label>
                                 </div>
-                                <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                                {{-- <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p> --}}
                             </li>
                         </ul>
                     </div>

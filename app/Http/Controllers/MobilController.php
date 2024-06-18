@@ -85,6 +85,12 @@ class MobilController extends Controller
 
     public function destroy($id)
     {
+        // cek mobil di transaksi
+        $mobil = Mobil::find($id);
+        if ($mobil->transaksi->count() > 0) {
+            return redirect()->back()->with('punyadata', 'Data Mobil Tidak Bisa Dihapus Karena Memiliki Transaksi');
+        }
+
         $dataMobil = Mobil::findOrFail($id);
         $dataMobil->delete();
         return redirect()->back()->with('destroy', 'Berhasil Menghapus Data');
