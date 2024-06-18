@@ -57,6 +57,7 @@
                                     <th class="text-capitalize text-center">nama</th>
                                     <th class="text-capitalize text-center">foto</th>
                                     <th class="text-capitalize text-center">harga</th>
+                                    <th class="text-capitalize text-center">jenis kendaraan</th>
                                     <th class="text-capitalize text-center">deskripsi</th>
                                     <th class="text-capitalize text-center">action</th>
                                 </tr>
@@ -67,6 +68,7 @@
                                     <td class="text-center">{{ $item->nama }}</td>
                                     <td class="text-center"><img src="{{ asset($item->foto) }}" alt="gambar" height="70px"></td>
                                     <td class="text-center">Rp. {{ number_format($item->harga, 0, ',', '.') }}</td>
+                                    <td class="text-center">{{ $item->jenis_kendaraan }}</td>
                                     <td class="text-center">{{ $item->deskripsi }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">

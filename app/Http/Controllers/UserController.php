@@ -67,6 +67,8 @@ class UserController extends Controller
                 'email.required' => 'Email harus diisi',
                 'email.email' => 'Email tidak valid',
                 'email.unique' => 'Email sudah terdaftar',
+                'password.required' => 'Password harus diisi',
+                'repassword.required' => 'Konfirmasi password harus diisi',
             ]);
         }
 
