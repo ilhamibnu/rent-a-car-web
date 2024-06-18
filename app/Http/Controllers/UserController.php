@@ -93,4 +93,28 @@ class UserController extends Controller
 
         return redirect()->back()->with('destroy', 'Data user berhasil dihapus');
     }
+
+    public function userterhapus()
+    {
+        $user = User::onlyTrashed()->where('role', 'user')->get();
+        return view('admin.pages.data-user-terhapus', [
+            'user' => $user
+        ]);
+    }
+
+    public function restore($id)
+    {
+        $user = User::withTrashed()->find($id);
+        $user->restore();
+
+        return redirect()->back()->with('restore', 'Data user berhasil direstore');
+    }
+
+    public function forceDelete($id)
+    {
+        $user = User::withTrashed()->find($id);
+        $user->forceDelete();
+
+        return redirect()->back()->with('destroy', 'Data user berhasil dihapus permanen');
+    }
 }

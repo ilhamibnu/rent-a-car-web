@@ -240,6 +240,17 @@
     </script>
     @endif
 
+    @if (Session::get('restore'))
+    <script>
+        Swal.fire({
+            icon: "success"
+            , title: "Success"
+            , text: "Data Berhasil Dipulihkan"
+        });
+
+    </script>
+    @endif
+
     @if (Session::get('statusubah'))
     <script>
         Swal.fire({

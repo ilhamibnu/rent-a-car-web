@@ -50,12 +50,19 @@ Route::middleware(['IsAdmin'])->group(function () {
     Route::post('/data-mobil/update/{id}', [MobilController::class, 'update'])->name('Admin.data-mobil.update');
     Route::delete('/data-mobil/delete/{id}', [MobilController::class, 'destroy'])->name('Admin.data-mobil.delete');
 
+    Route::get('/data-mobil-terhapus', [MobilController::class, 'mobilterhapus']);
+    Route::get('/data-mobil-terhapus/restore/{id}', [MobilController::class, 'restore']);
+    Route::delete('/data-mobil-terhapus/delete/{id}', [MobilController::class, 'forceDelete']);
+
     # User
     Route::get('/data-user', [UserController::class, 'index']);
     Route::post('/data-user', [UserController::class, 'store']);
     Route::put('/data-user/{id}', [UserController::class, 'update']);
     Route::delete('/data-user/{id}', [UserController::class, 'destroy']);
 
+    Route::get('/data-user-terhapus', [UserController::class, 'userterhapus']);
+    Route::get('/data-user-terhapus/restore/{id}', [UserController::class, 'restore']);
+    Route::delete('/data-user-terhapus/delete/{id}', [UserController::class, 'forceDelete']);
 
     # Transaksi
     Route::get('/data-transaksi', [TransaksiController::class, 'index']);

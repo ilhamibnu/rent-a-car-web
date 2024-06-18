@@ -180,6 +180,17 @@
     </script>
     @endif
 
+    @if (Session::get('emailgoogle'))
+    <script>
+        Swal.fire({
+            icon: "error"
+            , title: "Gagal"
+            , text: "Email ini terdaftar dengan google"
+        });
+
+    </script>
+    @endif
+
 </body>
 
 <!-- Mirrored from creativelayers.net/themes/boxcar-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 May 2024 05:09:24 GMT -->

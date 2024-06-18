@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('harga');
             $table->enum('jenis_kendaraan', ['mobil', 'motor']);
             $table->string('status')->default('tersedia');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

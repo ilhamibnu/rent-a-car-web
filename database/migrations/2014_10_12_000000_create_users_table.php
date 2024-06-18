@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('google')->nullable();
             $table->string('code')->nullable();
             $table->string('status_code')->nullable();
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

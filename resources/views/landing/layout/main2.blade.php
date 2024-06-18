@@ -222,8 +222,6 @@
     @endif
 
 
-
-
     @if (Session::get('ulasan'))
     <script>
         Swal.fire({
@@ -235,6 +233,16 @@
     </script>
     @endif
 
+    @if (Session::get('emailgoogle'))
+    <script>
+        Swal.fire({
+            icon: "error"
+            , title: "Gagal"
+            , text: "Email ini terdaftar dengan google"
+        });
+
+    </script>
+    @endif
 
 </body>
 

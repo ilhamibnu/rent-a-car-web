@@ -1,5 +1,5 @@
 @extends('admin.layout.main')
-@section('title', 'Data Mobil - ')
+@section('title', 'Data User - ')
 @section('content')
 <div class="container-fluid">
     <div class="page-header">
@@ -30,6 +30,7 @@
                 {{-- btn add --}}
                 <div class="card-header pb-0">
                     <a href="" data-bs-toggle="modal" data-bs-target="#Add" class="btn btn-primary">Tambah Data</a>
+                    <a href="/data-user-terhapus" class="btn btn-danger">Data User Terhapus</a>
                 </div>
                 <div class="card-body">
                     @if($errors->any())

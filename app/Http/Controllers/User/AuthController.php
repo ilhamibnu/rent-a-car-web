@@ -192,6 +192,10 @@ class AuthController extends Controller
 
         $user = User::where('email', $request->email)->where('role', 'user')->first();
 
+        if ($user->google == '1') {
+            return redirect()->back()->with('emailgoogle', 'Email ini terdaftar dengan google');
+        }
+
         if ($user) {
             try {
                 $mail = new PHPMailer(true);
